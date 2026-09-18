@@ -1,0 +1,1784 @@
+{
+ "10007": {
+  "tokens": 38831,
+  "chars": 155849,
+  "title": "Carmilla",
+  "split": "train"
+ },
+ "1003": {
+  "tokens": 53713,
+  "chars": 221786,
+  "title": "Divine Comedy, Longfellow's Translation, Paradise",
+  "split": "train"
+ },
+ "1006": {
+  "tokens": 56881,
+  "chars": 203427,
+  "title": "Divine Comedy, Cary's Translation, Purgatory",
+  "split": "train"
+ },
+ "1013": {
+  "tokens": 95414,
+  "chars": 379462,
+  "title": "The First Men in the Moon",
+  "split": "train"
+ },
+ "103": {
+  "tokens": 93807,
+  "chars": 369188,
+  "title": "Around the World in Eighty Days",
+  "split": "train"
+ },
+ "105": {
+  "tokens": 112419,
+  "chars": 464827,
+  "title": "Persuasion",
+  "split": "val"
+ },
+ "10554": {
+  "tokens": 108558,
+  "chars": 405148,
+  "title": "Right Ho, Jeeves",
+  "split": "train"
+ },
+ "1079": {
+  "tokens": 285513,
+  "chars": 1038086,
+  "title": "The life and opinions of Tristram Shandy, gentleman",
+  "split": "train"
+ },
+ "108": {
+  "tokens": 154723,
+  "chars": 673677,
+  "title": "The Return of Sherlock Holmes",
+  "split": "train"
+ },
+ "1086": {
+  "tokens": 26309,
+  "chars": 97261,
+  "title": "A Horse's Tale",
+  "split": "train"
+ },
+ "11": {
+  "tokens": 38635,
+  "chars": 144599,
+  "title": "Alice's Adventures in Wonderland",
+  "split": "train"
+ },
+ "110": {
+  "tokens": 212129,
+  "chars": 841181,
+  "title": "Tess of the d'Urbervilles: A Pure Woman",
+  "split": "val"
+ },
+ "1112": {
+  "tokens": 42294,
+  "chars": 139686,
+  "title": "Romeo and Juliet",
+  "split": "train"
+ },
+ "1128": {
+  "tokens": 42943,
+  "chars": 141076,
+  "title": "King Lear",
+  "split": "train"
+ },
+ "113": {
+  "tokens": 111670,
+  "chars": 428650,
+  "title": "The Secret Garden",
+  "split": "train"
+ },
+ "1155": {
+  "tokens": 112375,
+  "chars": 426704,
+  "title": "The Secret Adversary",
+  "split": "val"
+ },
+ "12": {
+  "tokens": 44594,
+  "chars": 164250,
+  "title": "Through the Looking-Glass",
+  "split": "train"
+ },
+ "120": {
+  "tokens": 96831,
+  "chars": 364519,
+  "title": "Treasure Island",
+  "split": "val"
+ },
+ "121": {
+  "tokens": 105609,
+  "chars": 434000,
+  "title": "Northanger Abbey",
+  "split": "train"
+ },
+ "1232": {
+  "tokens": 68463,
+  "chars": 282635,
+  "title": "The Prince",
+  "split": "train"
+ },
+ "1245": {
+  "tokens": 231779,
+  "chars": 946096,
+  "title": "Night and Day",
+  "split": "val"
+ },
+ "125": {
+  "tokens": 167843,
+  "chars": 645273,
+  "title": "A Girl of the Limberlost",
+  "split": "val"
+ },
+ "1250": {
+  "tokens": 24960,
+  "chars": 108049,
+  "title": "Anthem",
+  "split": "val"
+ },
+ "1251": {
+  "tokens": 235652,
+  "chars": 880902,
+  "title": "Le Morte d'Arthur: Volume 1",
+  "split": "train"
+ },
+ "1257": {
+  "tokens": 340013,
+  "chars": 1297963,
+  "title": "The three musketeers",
+  "split": "train"
+ },
+ "126": {
+  "tokens": 41749,
+  "chars": 164735,
+  "title": "The Poison Belt",
+  "split": "train"
+ },
+ "1260": {
+  "tokens": 265280,
+  "chars": 1022379,
+  "title": "Jane Eyre: An Autobiography",
+  "split": "val"
+ },
+ "1268": {
+  "tokens": 270399,
+  "chars": 1112261,
+  "title": "The Mysterious Island",
+  "split": "train"
+ },
+ "1279": {
+  "tokens": 231528,
+  "chars": 820423,
+  "title": "Poems and Songs of Robert Burns",
+  "split": "train"
+ },
+ "1287": {
+  "tokens": 154556,
+  "chars": 565260,
+  "title": "The Poems of Goethe, Translated in the Original Metres",
+  "split": "train"
+ },
+ "130": {
+  "tokens": 85242,
+  "chars": 356545,
+  "title": "Orthodoxy",
+  "split": "val"
+ },
+ "1300": {
+  "tokens": 153011,
+  "chars": 580176,
+  "title": "Riders of the Purple Sage",
+  "split": "val"
+ },
+ "132": {
+  "tokens": 80227,
+  "chars": 312839,
+  "title": "The Art of War",
+  "split": "train"
+ },
+ "1322": {
+  "tokens": 184890,
+  "chars": 738051,
+  "title": "Leaves of Grass",
+  "split": "train"
+ },
+ "1327": {
+  "tokens": 65935,
+  "chars": 264442,
+  "title": "Elizabeth and Her German Garden",
+  "split": "train"
+ },
+ "1342": {
+  "tokens": 176202,
+  "chars": 728741,
+  "title": "Pride and Prejudice",
+  "split": "train"
+ },
+ "1353": {
+  "tokens": 142691,
+  "chars": 592403,
+  "title": "Off on a Comet! a Journey through Planetary Space",
+  "split": "train"
+ },
+ "1354": {
+  "tokens": 93266,
+  "chars": 363291,
+  "title": "Chronicles of Avonlea",
+  "split": "train"
+ },
+ "139": {
+  "tokens": 107543,
+  "chars": 424037,
+  "title": "The Lost World",
+  "split": "train"
+ },
+ "1391": {
+  "tokens": 103696,
+  "chars": 408549,
+  "title": "Penelope's Irish Experiences",
+  "split": "train"
+ },
+ "140": {
+  "tokens": 203721,
+  "chars": 808197,
+  "title": "The Jungle",
+  "split": "val"
+ },
+ "1400": {
+  "tokens": 259831,
+  "chars": 994616,
+  "title": "Great Expectations",
+  "split": "val"
+ },
+ "1404": {
+  "tokens": 252314,
+  "chars": 1147612,
+  "title": "The Federalist Papers",
+  "split": "train"
+ },
+ "141": {
+  "tokens": 215802,
+  "chars": 883970,
+  "title": "Mansfield Park",
+  "split": "train"
+ },
+ "1429": {
+  "tokens": 85138,
+  "chars": 318906,
+  "title": "The Garden Party, and Other Stories",
+  "split": "train"
+ },
+ "1447": {
+  "tokens": 121044,
+  "chars": 486377,
+  "title": "The Illustrious Prince",
+  "split": "train"
+ },
+ "1449": {
+  "tokens": 244611,
+  "chars": 920418,
+  "title": "The Valley of the Moon",
+  "split": "train"
+ },
+ "145": {
+  "tokens": 444181,
+  "chars": 1780177,
+  "title": "Middlemarch",
+  "split": "val"
+ },
+ "1466": {
+  "tokens": 94057,
+  "chars": 357042,
+  "title": "Creatures That Once Were Men",
+  "split": "train"
+ },
+ "147": {
+  "tokens": 29902,
+  "chars": 126458,
+  "title": "Common Sense",
+  "split": "train"
+ },
+ "149": {
+  "tokens": 50602,
+  "chars": 209179,
+  "title": "The Lost Continent",
+  "split": "train"
+ },
+ "1497": {
+  "tokens": 287080,
+  "chars": 1194443,
+  "title": "The Republic",
+  "split": "train"
+ },
+ "15": {
+  "tokens": 317668,
+  "chars": 1238395,
+  "title": "Moby-Dick; or, The Whale",
+  "split": "val"
+ },
+ "1513": {
+  "tokens": 43253,
+  "chars": 142465,
+  "title": "Romeo and Juliet",
+  "split": "train"
+ },
+ "1524": {
+  "tokens": 53343,
+  "chars": 177957,
+  "title": "Hamlet",
+  "split": "train"
+ },
+ "1531": {
+  "tokens": 47185,
+  "chars": 154223,
+  "title": "Othello",
+  "split": "train"
+ },
+ "1540": {
+  "tokens": 30204,
+  "chars": 98754,
+  "title": "The Tempest",
+  "split": "val"
+ },
+ "1572": {
+  "tokens": 96091,
+  "chars": 447756,
+  "title": "Timaeus",
+  "split": "train"
+ },
+ "158": {
+  "tokens": 220511,
+  "chars": 880424,
+  "title": "Emma",
+  "split": "train"
+ },
+ "1590": {
+  "tokens": 96928,
+  "chars": 383809,
+  "title": "The Amazing Interlude",
+  "split": "val"
+ },
+ "1597": {
+  "tokens": 76591,
+  "chars": 299317,
+  "title": "Andersen's Fairy Tales",
+  "split": "train"
+ },
+ "16": {
+  "tokens": 66608,
+  "chars": 255583,
+  "title": "Peter Pan",
+  "split": "train"
+ },
+ "160": {
+  "tokens": 90446,
+  "chars": 359406,
+  "title": "The Awakening, and Selected Short Stories",
+  "split": "val"
+ },
+ "1608": {
+  "tokens": 90330,
+  "chars": 348707,
+  "title": "Camille (La Dame aux Camilias)",
+  "split": "train"
+ },
+ "161": {
+  "tokens": 163773,
+  "chars": 670674,
+  "title": "Sense and Sensibility",
+  "split": "train"
+ },
+ "1622": {
+  "tokens": 193507,
+  "chars": 768426,
+  "title": "The Law and the Lady",
+  "split": "train"
+ },
+ "1638": {
+  "tokens": 26796,
+  "chars": 113712,
+  "title": "The New Revelation",
+  "split": "train"
+ },
+ "164": {
+  "tokens": 150468,
+  "chars": 597840,
+  "title": "Twenty Thousand Leagues under the Sea",
+  "split": "train"
+ },
+ "1655": {
+  "tokens": 78035,
+  "chars": 288362,
+  "title": "The God of His Fathers: Tales of the Klondyke",
+  "split": "val"
+ },
+ "1661": {
+  "tokens": 142831,
+  "chars": 562202,
+  "title": "The Adventures of Sherlock Holmes",
+  "split": "train"
+ },
+ "1666": {
+  "tokens": 114340,
+  "chars": 440299,
+  "title": "The Golden Asse",
+  "split": "train"
+ },
+ "1672": {
+  "tokens": 82612,
+  "chars": 327962,
+  "title": "Gorgias",
+  "split": "train"
+ },
+ "1690": {
+  "tokens": 143591,
+  "chars": 556444,
+  "title": "Marie: An Episode in the Life of the Late Allan Quatermain",
+  "split": "val"
+ },
+ "1695": {
+  "tokens": 80652,
+  "chars": 322037,
+  "title": "The Man Who Was Thursday: A Nightmare",
+  "split": "val"
+ },
+ "1720": {
+  "tokens": 81106,
+  "chars": 328621,
+  "title": "The Man Who Knew Too Much",
+  "split": "val"
+ },
+ "1727": {
+  "tokens": 176692,
+  "chars": 678822,
+  "title": "The Odyssey",
+  "split": "train"
+ },
+ "1735": {
+  "tokens": 65672,
+  "chars": 261204,
+  "title": "Sophist",
+  "split": "val"
+ },
+ "174": {
+  "tokens": 109866,
+  "chars": 429312,
+  "title": "The Picture of Dorian Gray",
+  "split": "train"
+ },
+ "175": {
+  "tokens": 124336,
+  "chars": 474650,
+  "title": "The Phantom of the Opera",
+  "split": "val"
+ },
+ "1751": {
+  "tokens": 98757,
+  "chars": 379319,
+  "title": "Twilight Land",
+  "split": "train"
+ },
+ "178": {
+  "tokens": 105416,
+  "chars": 420043,
+  "title": "Confidence",
+  "split": "train"
+ },
+ "1780": {
+  "tokens": 43506,
+  "chars": 163290,
+  "title": "King Henry IV, Part 1",
+  "split": "val"
+ },
+ "1794": {
+  "tokens": 48197,
+  "chars": 181485,
+  "title": "King Lear",
+  "split": "train"
+ },
+ "1804": {
+  "tokens": 81845,
+  "chars": 351481,
+  "title": "War and the Future: Italy, France and Britain at War",
+  "split": "train"
+ },
+ "1811": {
+  "tokens": 43259,
+  "chars": 171892,
+  "title": "Massimilla Doni",
+  "split": "train"
+ },
+ "1835": {
+  "tokens": 24256,
+  "chars": 98975,
+  "title": "The Case of the Pool of Blood in the Pastor's Study",
+  "split": "val"
+ },
+ "1837": {
+  "tokens": 103820,
+  "chars": 395978,
+  "title": "The Prince and the Pauper",
+  "split": "train"
+ },
+ "1840": {
+  "tokens": 271726,
+  "chars": 1093875,
+  "title": "The Financier: A Novel",
+  "split": "val"
+ },
+ "1850": {
+  "tokens": 26332,
+  "chars": 108340,
+  "title": "Old Christmas",
+  "split": "val"
+ },
+ "1860": {
+  "tokens": 365910,
+  "chars": 1385769,
+  "title": "Westward Ho! Or, The Voyages and Adventures of Sir Amyas Leigh, Knight, of Burrough, in the County of Devon, in the Reign of Her Most Glorious Majesty Queen Elizabeth",
+  "split": "val"
+ },
+ "1880": {
+  "tokens": 244846,
+  "chars": 982148,
+  "title": "The Pathfinder; Or, The Inland Sea",
+  "split": "val"
+ },
+ "1881": {
+  "tokens": 105228,
+  "chars": 410733,
+  "title": "The Call of the Canyon",
+  "split": "train"
+ },
+ "19": {
+  "tokens": 54934,
+  "chars": 187545,
+  "title": "The Song of Hiawatha",
+  "split": "train"
+ },
+ "1900": {
+  "tokens": 158365,
+  "chars": 656887,
+  "title": "Typee: A Romance of the South Seas",
+  "split": "val"
+ },
+ "1907": {
+  "tokens": 34919,
+  "chars": 130675,
+  "title": "Rowdy of the Cross L",
+  "split": "train"
+ },
+ "1929": {
+  "tokens": 48614,
+  "chars": 172427,
+  "title": "The School for Scandal",
+  "split": "train"
+ },
+ "1947": {
+  "tokens": 180891,
+  "chars": 707372,
+  "title": "Scaramouche: A Romance of the French Revolution",
+  "split": "train"
+ },
+ "1951": {
+  "tokens": 71732,
+  "chars": 300661,
+  "title": "The Coming Race",
+  "split": "train"
+ },
+ "1965": {
+  "tokens": 161465,
+  "chars": 642319,
+  "title": "Captain Blood",
+  "split": "val"
+ },
+ "1974": {
+  "tokens": 21380,
+  "chars": 87043,
+  "title": "The Poetics of Aristotle",
+  "split": "train"
+ },
+ "1985": {
+  "tokens": 96767,
+  "chars": 368949,
+  "title": "Men's Wives",
+  "split": "val"
+ },
+ "1990": {
+  "tokens": 26372,
+  "chars": 101633,
+  "title": "The Bedford-Row Conspiracy",
+  "split": "val"
+ },
+ "1997": {
+  "tokens": 72623,
+  "chars": 280637,
+  "title": "The Divine Comedy, Volume 3, Paradise",
+  "split": "train"
+ },
+ "1998": {
+  "tokens": 168579,
+  "chars": 637289,
+  "title": "Thus Spake Zarathustra: A Book for All and None",
+  "split": "train"
+ },
+ "20": {
+  "tokens": 130246,
+  "chars": 456648,
+  "title": "Paradise Lost",
+  "split": "val"
+ },
+ "2005": {
+  "tokens": 117270,
+  "chars": 449842,
+  "title": "Piccadilly Jim",
+  "split": "val"
+ },
+ "2009": {
+  "tokens": 286938,
+  "chars": 1257090,
+  "title": "The Origin of Species by Means of Natural Selection",
+  "split": "train"
+ },
+ "2011": {
+  "tokens": 94035,
+  "chars": 349810,
+  "title": "Rudder Grange",
+  "split": "train"
+ },
+ "2012": {
+  "tokens": 23213,
+  "chars": 93404,
+  "title": "The Children",
+  "split": "train"
+ },
+ "2020": {
+  "tokens": 131665,
+  "chars": 528537,
+  "title": "Tarzan the Terrible",
+  "split": "val"
+ },
+ "2022": {
+  "tokens": 49312,
+  "chars": 185941,
+  "title": "Angling Sketches",
+  "split": "train"
+ },
+ "2024": {
+  "tokens": 59569,
+  "chars": 231857,
+  "title": "Diary of a Pilgrimage",
+  "split": "train"
+ },
+ "2027": {
+  "tokens": 28914,
+  "chars": 106352,
+  "title": "Tartuffe; Or, The Hypocrite",
+  "split": "train"
+ },
+ "203": {
+  "tokens": 268872,
+  "chars": 1005813,
+  "title": "Uncle Tom's Cabin",
+  "split": "train"
+ },
+ "2033": {
+  "tokens": 80233,
+  "chars": 339258,
+  "title": "The Unknown Guest",
+  "split": "train"
+ },
+ "2037": {
+  "tokens": 98426,
+  "chars": 379566,
+  "title": "Novel Notes",
+  "split": "train"
+ },
+ "2043": {
+  "tokens": 182793,
+  "chars": 715182,
+  "title": "The Lock and Key Library: The most interesting stories of all nations: American",
+  "split": "train"
+ },
+ "2048": {
+  "tokens": 180068,
+  "chars": 745048,
+  "title": "The Sketch-Book of Geoffrey Crayon",
+  "split": "train"
+ },
+ "205": {
+  "tokens": 156438,
+  "chars": 634786,
+  "title": "Walden, and On The Duty Of Civil Disobedience",
+  "split": "val"
+ },
+ "2053": {
+  "tokens": 127900,
+  "chars": 561572,
+  "title": "The American Republic: Its Constitution, Tendencies, and Destiny",
+  "split": "train"
+ },
+ "2062": {
+  "tokens": 47418,
+  "chars": 170247,
+  "title": "All for Love; Or, The World Well Lost: A Tragedy",
+  "split": "train"
+ },
+ "2077": {
+  "tokens": 216295,
+  "chars": 870297,
+  "title": "The Nabob",
+  "split": "train"
+ },
+ "208": {
+  "tokens": 30693,
+  "chars": 122420,
+  "title": "Daisy Miller: A Study",
+  "split": "train"
+ },
+ "2081": {
+  "tokens": 111452,
+  "chars": 436580,
+  "title": "The Blithedale Romance",
+  "split": "train"
+ },
+ "2084": {
+  "tokens": 213159,
+  "chars": 874134,
+  "title": "The Way of All Flesh",
+  "split": "train"
+ },
+ "209": {
+  "tokens": 58897,
+  "chars": 228466,
+  "title": "The Turn of the Screw",
+  "split": "train"
+ },
+ "2097": {
+  "tokens": 59703,
+  "chars": 232121,
+  "title": "The Sign of the Four",
+  "split": "train"
+ },
+ "2130": {
+  "tokens": 56397,
+  "chars": 237340,
+  "title": "Utopia",
+  "split": "val"
+ },
+ "2141": {
+  "tokens": 103834,
+  "chars": 396792,
+  "title": "Strictly Business: More Stories of the Four Million",
+  "split": "train"
+ },
+ "2148": {
+  "tokens": 137282,
+  "chars": 602107,
+  "title": "The Works of Edgar Allan Poe \u2014 Volume 2",
+  "split": "train"
+ },
+ "215": {
+  "tokens": 44135,
+  "chars": 175590,
+  "title": "The call of the wild",
+  "split": "val"
+ },
+ "2160": {
+  "tokens": 212535,
+  "chars": 850124,
+  "title": "The Expedition of Humphry Clinker",
+  "split": "val"
+ },
+ "2166": {
+  "tokens": 114528,
+  "chars": 444370,
+  "title": "King Solomon's Mines",
+  "split": "train"
+ },
+ "217": {
+  "tokens": 235523,
+  "chars": 881299,
+  "title": "Sons and Lovers",
+  "split": "train"
+ },
+ "2170": {
+  "tokens": 259416,
+  "chars": 1119023,
+  "title": "Miscellaneous Writings and Speeches \u2014 Volume 4",
+  "split": "val"
+ },
+ "2181": {
+  "tokens": 89964,
+  "chars": 360002,
+  "title": "The Marble Faun; Or, The Romance of Monte Beni - Volume 1",
+  "split": "train"
+ },
+ "219": {
+  "tokens": 53908,
+  "chars": 209894,
+  "title": "Heart of Darkness",
+  "split": "train"
+ },
+ "2199": {
+  "tokens": 214405,
+  "chars": 888942,
+  "title": "The Iliad",
+  "split": "train"
+ },
+ "2226": {
+  "tokens": 156793,
+  "chars": 577824,
+  "title": "Kim",
+  "split": "train"
+ },
+ "2239": {
+  "tokens": 26116,
+  "chars": 86254,
+  "title": "The Comedy of Errors",
+  "split": "train"
+ },
+ "224": {
+  "tokens": 186519,
+  "chars": 733762,
+  "title": "A pair of blue eyes",
+  "split": "train"
+ },
+ "2245": {
+  "tokens": 37025,
+  "chars": 122152,
+  "title": "The Taming of the Shrew",
+  "split": "val"
+ },
+ "2264": {
+  "tokens": 32011,
+  "chars": 104065,
+  "title": "Macbeth",
+  "split": "train"
+ },
+ "2267": {
+  "tokens": 48270,
+  "chars": 154650,
+  "title": "Othello",
+  "split": "train"
+ },
+ "2280": {
+  "tokens": 41367,
+  "chars": 161127,
+  "title": "A Millionaire of Rough-and-Ready",
+  "split": "val"
+ },
+ "2286": {
+  "tokens": 35759,
+  "chars": 142986,
+  "title": "Devil's Ford",
+  "split": "train"
+ },
+ "23": {
+  "tokens": 55474,
+  "chars": 223993,
+  "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+  "split": "train"
+ },
+ "2305": {
+  "tokens": 144701,
+  "chars": 565808,
+  "title": "A Set of Six",
+  "split": "val"
+ },
+ "2311": {
+  "tokens": 205324,
+  "chars": 818797,
+  "title": "Travels through France and Italy",
+  "split": "train"
+ },
+ "2323": {
+  "tokens": 188512,
+  "chars": 771715,
+  "title": "Recollections and Letters of General Robert E. Lee",
+  "split": "train"
+ },
+ "233": {
+  "tokens": 221443,
+  "chars": 879108,
+  "title": "Sister Carrie: A Novel",
+  "split": "train"
+ },
+ "2350": {
+  "tokens": 81458,
+  "chars": 323846,
+  "title": "His last bow",
+  "split": "val"
+ },
+ "236": {
+  "tokens": 72829,
+  "chars": 273029,
+  "title": "The Jungle Book",
+  "split": "train"
+ },
+ "2360": {
+  "tokens": 158268,
+  "chars": 605134,
+  "title": "The Riddle of the Sands",
+  "split": "val"
+ },
+ "2377": {
+  "tokens": 69074,
+  "chars": 266131,
+  "title": "The Son of the Wolf",
+  "split": "train"
+ },
+ "238": {
+  "tokens": 92763,
+  "chars": 369082,
+  "title": "Dear Enemy",
+  "split": "train"
+ },
+ "2383": {
+  "tokens": 449185,
+  "chars": 1650758,
+  "title": "The Canterbury Tales, and Other Poems",
+  "split": "train"
+ },
+ "2397": {
+  "tokens": 178789,
+  "chars": 741559,
+  "title": "The Story of My Life",
+  "split": "train"
+ },
+ "2400": {
+  "tokens": 112626,
+  "chars": 446325,
+  "title": "Vikram and the Vampire: Classic Hindu Tales of Adventure, Magic, and Romance",
+  "split": "val"
+ },
+ "2413": {
+  "tokens": 166448,
+  "chars": 652128,
+  "title": "Madame Bovary",
+  "split": "train"
+ },
+ "2429": {
+  "tokens": 60068,
+  "chars": 225411,
+  "title": "Lost Face",
+  "split": "train"
+ },
+ "244": {
+  "tokens": 59890,
+  "chars": 239426,
+  "title": "A Study in Scarlet",
+  "split": "train"
+ },
+ "2447": {
+  "tokens": 138588,
+  "chars": 575862,
+  "title": "Eminent Victorians",
+  "split": "train"
+ },
+ "2459": {
+  "tokens": 112277,
+  "chars": 448633,
+  "title": "Trent's Trust, and Other Stories",
+  "split": "train"
+ },
+ "2467": {
+  "tokens": 34328,
+  "chars": 123727,
+  "title": "Ghosts: A Domestic Tragedy in Three Acts",
+  "split": "train"
+ },
+ "2480": {
+  "tokens": 158401,
+  "chars": 634778,
+  "title": "Under Western Eyes",
+  "split": "val"
+ },
+ "2488": {
+  "tokens": 209870,
+  "chars": 843467,
+  "title": "Twenty Thousand Leagues Under the Seas: An Underwater Tour of the World",
+  "split": "train"
+ },
+ "2495": {
+  "tokens": 71934,
+  "chars": 287620,
+  "title": "Susy, a Story of the Plains",
+  "split": "val"
+ },
+ "2500": {
+  "tokens": 55260,
+  "chars": 216173,
+  "title": "Siddhartha",
+  "split": "val"
+ },
+ "2509": {
+  "tokens": 85919,
+  "chars": 339675,
+  "title": "The Lani People",
+  "split": "train"
+ },
+ "251": {
+  "tokens": 21242,
+  "chars": 41772,
+  "title": "1995 United States Congressional Address Book",
+  "split": "train"
+ },
+ "2517": {
+  "tokens": 188531,
+  "chars": 763668,
+  "title": "Lincoln's yarns and stories",
+  "split": "train"
+ },
+ "2528": {
+  "tokens": 129411,
+  "chars": 534094,
+  "title": "The Women of the French Salons",
+  "split": "train"
+ },
+ "25344": {
+  "tokens": 122206,
+  "chars": 492055,
+  "title": "The Scarlet Letter",
+  "split": "train"
+ },
+ "2542": {
+  "tokens": 42207,
+  "chars": 142226,
+  "title": "A Doll's House : a play",
+  "split": "train"
+ },
+ "2546": {
+  "tokens": 95885,
+  "chars": 363392,
+  "title": "Hopalong Cassidy's Rustler Round-Up; Or, Bar-20",
+  "split": "train"
+ },
+ "2554": {
+  "tokens": 293689,
+  "chars": 1135108,
+  "title": "Crime and Punishment",
+  "split": "train"
+ },
+ "2571": {
+  "tokens": 25259,
+  "chars": 90937,
+  "title": "Peace",
+  "split": "train"
+ },
+ "259": {
+  "tokens": 28045,
+  "chars": 110778,
+  "title": "Ballads of a Cheechako",
+  "split": "train"
+ },
+ "2591": {
+  "tokens": 135374,
+  "chars": 520810,
+  "title": "Grimms' Fairy Tales",
+  "split": "train"
+ },
+ "2600": {
+  "tokens": 794160,
+  "chars": 3208272,
+  "title": "War and Peace",
+  "split": "val"
+ },
+ "2609": {
+  "tokens": 285654,
+  "chars": 1078548,
+  "title": "The Vicomte de Bragelonne",
+  "split": "train"
+ },
+ "262": {
+  "tokens": 38568,
+  "chars": 152352,
+  "title": "The Collected Poems of Rupert Brooke",
+  "split": "train"
+ },
+ "2620": {
+  "tokens": 279170,
+  "chars": 959997,
+  "title": "The Home Book of Verse \u2014 Volume 2",
+  "split": "val"
+ },
+ "2634": {
+  "tokens": 31597,
+  "chars": 129246,
+  "title": "The Evolution of Theology: an Anthropological Study",
+  "split": "train"
+ },
+ "2641": {
+  "tokens": 97528,
+  "chars": 375150,
+  "title": "A Room with a View",
+  "split": "train"
+ },
+ "2653": {
+  "tokens": 105894,
+  "chars": 450990,
+  "title": "The Papers and Writings of Abraham Lincoln \u2014 Volume 1: 1832-1843",
+  "split": "train"
+ },
+ "266": {
+  "tokens": 370129,
+  "chars": 1102419,
+  "title": "Confessio Amantis; Or, Tales of the Seven Deadly Sins",
+  "split": "train"
+ },
+ "2661": {
+  "tokens": 54829,
+  "chars": 215259,
+  "title": "The Story of a Mine",
+  "split": "train"
+ },
+ "2667": {
+  "tokens": 87790,
+  "chars": 354058,
+  "title": "The Vicar of Wakefield",
+  "split": "train"
+ },
+ "2672": {
+  "tokens": 123241,
+  "chars": 484449,
+  "title": "The Complete Writings of Charles Dudley Warner \u2014 Volume 2",
+  "split": "train"
+ },
+ "2680": {
+  "tokens": 99888,
+  "chars": 398201,
+  "title": "Meditations",
+  "split": "val"
+ },
+ "2688": {
+  "tokens": 80154,
+  "chars": 318255,
+  "title": "The Clue of the Twisted Candle",
+  "split": "train"
+ },
+ "27": {
+  "tokens": 199202,
+  "chars": 773819,
+  "title": "Far from the Madding Crowd",
+  "split": "train"
+ },
+ "270": {
+  "tokens": 54743,
+  "chars": 214269,
+  "title": "Dream Days",
+  "split": "val"
+ },
+ "2701": {
+  "tokens": 317200,
+  "chars": 1218940,
+  "title": "Moby Dick; Or, The Whale",
+  "split": "train"
+ },
+ "271": {
+  "tokens": 78951,
+  "chars": 303977,
+  "title": "Black Beauty",
+  "split": "train"
+ },
+ "28": {
+  "tokens": 20408,
+  "chars": 78589,
+  "title": "The Fables of Aesop",
+  "split": "train"
+ },
+ "2814": {
+  "tokens": 94358,
+  "chars": 369786,
+  "title": "Dubliners",
+  "split": "train"
+ },
+ "285": {
+  "tokens": 131298,
+  "chars": 520357,
+  "title": "The Lost Continent",
+  "split": "val"
+ },
+ "2852": {
+  "tokens": 80545,
+  "chars": 354122,
+  "title": "The Hound of the Baskervilles",
+  "split": "train"
+ },
+ "289": {
+  "tokens": 85598,
+  "chars": 324791,
+  "title": "The Wind in the Willows",
+  "split": "train"
+ },
+ "30254": {
+  "tokens": 254890,
+  "chars": 1030961,
+  "title": "The Romance of Lust: A classic Victorian erotic novel",
+  "split": "train"
+ },
+ "3070": {
+  "tokens": 80844,
+  "chars": 318609,
+  "title": "The Hound of the Baskervilles",
+  "split": "val"
+ },
+ "31": {
+  "tokens": 62137,
+  "chars": 214753,
+  "title": "Plays of Sophocles: Oedipus the King; Oedipus at Colonus; Antigone",
+  "split": "train"
+ },
+ "32": {
+  "tokens": 73729,
+  "chars": 296895,
+  "title": "Herland",
+  "split": "train"
+ },
+ "3207": {
+  "tokens": 312570,
+  "chars": 1212462,
+  "title": "Leviathan",
+  "split": "train"
+ },
+ "3268": {
+  "tokens": 415137,
+  "chars": 1680454,
+  "title": "The Mysteries of Udolpho",
+  "split": "train"
+ },
+ "3296": {
+  "tokens": 154689,
+  "chars": 602961,
+  "title": "The Confessions of St. Augustine",
+  "split": "train"
+ },
+ "33": {
+  "tokens": 119056,
+  "chars": 480298,
+  "title": "The Scarlet Letter",
+  "split": "train"
+ },
+ "34": {
+  "tokens": 39007,
+  "chars": 158663,
+  "title": "Zen and the Art of the Internet",
+  "split": "train"
+ },
+ "345": {
+  "tokens": 218440,
+  "chars": 845921,
+  "title": "Dracula",
+  "split": "val"
+ },
+ "348": {
+  "tokens": 142488,
+  "chars": 514205,
+  "title": "Hesiod, the Homeric Hymns, and Homerica",
+  "split": "train"
+ },
+ "35": {
+  "tokens": 44194,
+  "chars": 179698,
+  "title": "The Time Machine",
+  "split": "val"
+ },
+ "351": {
+  "tokens": 351328,
+  "chars": 1409945,
+  "title": "Of Human Bondage",
+  "split": "train"
+ },
+ "36": {
+  "tokens": 83068,
+  "chars": 337423,
+  "title": "The war of the worlds",
+  "split": "train"
+ },
+ "376": {
+  "tokens": 126121,
+  "chars": 570336,
+  "title": "A Journal of the Plague Year",
+  "split": "train"
+ },
+ "3825": {
+  "tokens": 51835,
+  "chars": 188306,
+  "title": "Pygmalion",
+  "split": "val"
+ },
+ "394": {
+  "tokens": 99642,
+  "chars": 389385,
+  "title": "Cranford",
+  "split": "train"
+ },
+ "408": {
+  "tokens": 95861,
+  "chars": 399015,
+  "title": "The Souls of Black Folk",
+  "split": "train"
+ },
+ "4085": {
+  "tokens": 264620,
+  "chars": 1073589,
+  "title": "The Adventures of Roderick Random",
+  "split": "val"
+ },
+ "42": {
+  "tokens": 35666,
+  "chars": 139248,
+  "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+  "split": "train"
+ },
+ "4217": {
+  "tokens": 116557,
+  "chars": 462641,
+  "title": "A Portrait of the Artist as a Young Man",
+  "split": "train"
+ },
+ "4276": {
+  "tokens": 253706,
+  "chars": 991268,
+  "title": "North and South",
+  "split": "train"
+ },
+ "43": {
+  "tokens": 35462,
+  "chars": 138814,
+  "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+  "split": "train"
+ },
+ "4300": {
+  "tokens": 407174,
+  "chars": 1519707,
+  "title": "Ulysses",
+  "split": "val"
+ },
+ "434": {
+  "tokens": 98712,
+  "chars": 382270,
+  "title": "The Circular Staircase",
+  "split": "train"
+ },
+ "4363": {
+  "tokens": 92819,
+  "chars": 382937,
+  "title": "Beyond Good and Evil",
+  "split": "train"
+ },
+ "45": {
+  "tokens": 143512,
+  "chars": 561143,
+  "title": "Anne of Green Gables",
+  "split": "val"
+ },
+ "4517": {
+  "tokens": 47794,
+  "chars": 188435,
+  "title": "Ethan Frome",
+  "split": "train"
+ },
+ "46": {
+  "tokens": 42303,
+  "chars": 158414,
+  "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+  "split": "train"
+ },
+ "47": {
+  "tokens": 126348,
+  "chars": 488107,
+  "title": "Anne of Avonlea",
+  "split": "train"
+ },
+ "500": {
+  "tokens": 57246,
+  "chars": 213766,
+  "title": "The Adventures of Pinocchio",
+  "split": "val"
+ },
+ "503": {
+  "tokens": 184027,
+  "chars": 730553,
+  "title": "The Blue Fairy Book",
+  "split": "train"
+ },
+ "512": {
+  "tokens": 220354,
+  "chars": 902950,
+  "title": "Mosses from an old manse",
+  "split": "train"
+ },
+ "5200": {
+  "tokens": 28079,
+  "chars": 118415,
+  "title": "Metamorphosis",
+  "split": "val"
+ },
+ "521": {
+  "tokens": 156661,
+  "chars": 621520,
+  "title": "The Life and Adventures of Robinson Crusoe",
+  "split": "train"
+ },
+ "5230": {
+  "tokens": 70773,
+  "chars": 272815,
+  "title": "The Invisible Man: A Grotesque Romance",
+  "split": "val"
+ },
+ "524": {
+  "tokens": 137711,
+  "chars": 548113,
+  "title": "Ann Veronica: A Modern Love Story",
+  "split": "train"
+ },
+ "526": {
+  "tokens": 54092,
+  "chars": 210828,
+  "title": "Heart of Darkness",
+  "split": "train"
+ },
+ "541": {
+  "tokens": 145192,
+  "chars": 578392,
+  "title": "The Age of Innocence",
+  "split": "train"
+ },
+ "55": {
+  "tokens": 52997,
+  "chars": 207817,
+  "title": "The Wonderful Wizard of Oz",
+  "split": "val"
+ },
+ "550": {
+  "tokens": 100740,
+  "chars": 392469,
+  "title": "Silas Marner",
+  "split": "val"
+ },
+ "564": {
+  "tokens": 141294,
+  "chars": 539928,
+  "title": "The Mystery of Edwin Drood",
+  "split": "train"
+ },
+ "570": {
+  "tokens": 88392,
+  "chars": 362623,
+  "title": "The Moravians in Georgia, 1735-1740",
+  "split": "val"
+ },
+ "5827": {
+  "tokens": 56127,
+  "chars": 245718,
+  "title": "The Problems of Philosophy",
+  "split": "train"
+ },
+ "593": {
+  "tokens": 123757,
+  "chars": 489652,
+  "title": "A Selection from the Writings of Guy De Maupassant, Vol. I",
+  "split": "train"
+ },
+ "600": {
+  "tokens": 60572,
+  "chars": 239804,
+  "title": "Notes from the Underground",
+  "split": "val"
+ },
+ "610": {
+  "tokens": 126323,
+  "chars": 476736,
+  "title": "Idylls of the King",
+  "split": "val"
+ },
+ "6130": {
+  "tokens": 298987,
+  "chars": 1097443,
+  "title": "The Iliad",
+  "split": "val"
+ },
+ "619": {
+  "tokens": 101636,
+  "chars": 399707,
+  "title": "The Warden",
+  "split": "train"
+ },
+ "62": {
+  "tokens": 89129,
+  "chars": 371058,
+  "title": "A princess of Mars",
+  "split": "train"
+ },
+ "623": {
+  "tokens": 57560,
+  "chars": 227535,
+  "title": "The Battle of the Books, and other Short Pieces",
+  "split": "train"
+ },
+ "64": {
+  "tokens": 110694,
+  "chars": 450442,
+  "title": "The gods of Mars",
+  "split": "train"
+ },
+ "640": {
+  "tokens": 146148,
+  "chars": 584905,
+  "title": "The Yellow Fairy Book",
+  "split": "val"
+ },
+ "650": {
+  "tokens": 106261,
+  "chars": 416710,
+  "title": "Pictures from Italy",
+  "split": "val"
+ },
+ "652": {
+  "tokens": 52545,
+  "chars": 220039,
+  "title": "Rasselas, Prince of Abyssinia",
+  "split": "train"
+ },
+ "67": {
+  "tokens": 104530,
+  "chars": 477752,
+  "title": "The Black Experience in America",
+  "split": "train"
+ },
+ "69": {
+  "tokens": 118616,
+  "chars": 232908,
+  "title": "The 32nd Mersenne Prime",
+  "split": "train"
+ },
+ "700": {
+  "tokens": 310326,
+  "chars": 1215004,
+  "title": "The Old Curiosity Shop",
+  "split": "val"
+ },
+ "708": {
+  "tokens": 71311,
+  "chars": 275287,
+  "title": "The Princess and the Goblin",
+  "split": "train"
+ },
+ "73": {
+  "tokens": 65318,
+  "chars": 258350,
+  "title": "The Red Badge of Courage: An Episode of the American Civil War",
+  "split": "train"
+ },
+ "730": {
+  "tokens": 232764,
+  "chars": 893160,
+  "title": "Oliver Twist",
+  "split": "val"
+ },
+ "7370": {
+  "tokens": 75690,
+  "chars": 313699,
+  "title": "Second Treatise of Government",
+  "split": "val"
+ },
+ "74": {
+  "tokens": 103486,
+  "chars": 392732,
+  "title": "The Adventures of Tom Sawyer, Complete",
+  "split": "train"
+ },
+ "750": {
+  "tokens": 225621,
+  "chars": 838277,
+  "title": "The High History of the Holy Graal",
+  "split": "val"
+ },
+ "76": {
+  "tokens": 159668,
+  "chars": 571052,
+  "title": "Adventures of Huckleberry Finn",
+  "split": "train"
+ },
+ "766": {
+  "tokens": 510781,
+  "chars": 1934726,
+  "title": "David Copperfield",
+  "split": "train"
+ },
+ "767": {
+  "tokens": 95348,
+  "chars": 374382,
+  "title": "Agnes Grey",
+  "split": "train"
+ },
+ "768": {
+  "tokens": 169168,
+  "chars": 645605,
+  "title": "Wuthering Heights",
+  "split": "train"
+ },
+ "773": {
+  "tokens": 56907,
+  "chars": 222398,
+  "title": "Lord Arthur Savile's Crime; The Portrait of Mr. W.H., and Other Stories",
+  "split": "train"
+ },
+ "780": {
+  "tokens": 138450,
+  "chars": 559920,
+  "title": "The War in the Air",
+  "split": "val"
+ },
+ "786": {
+  "tokens": 155458,
+  "chars": 579446,
+  "title": "Hard Times",
+  "split": "train"
+ },
+ "805": {
+  "tokens": 122657,
+  "chars": 519942,
+  "title": "This Side of Paradise",
+  "split": "val"
+ },
+ "815": {
+  "tokens": 246456,
+  "chars": 1109408,
+  "title": "Democracy in America \u2014 Volume 1",
+  "split": "val"
+ },
+ "82": {
+  "tokens": 282035,
+  "chars": 1103729,
+  "title": "Ivanhoe: A Romance",
+  "split": "train"
+ },
+ "829": {
+  "tokens": 142176,
+  "chars": 582410,
+  "title": "Gulliver's Travels into Several Remote Nations of the World",
+  "split": "train"
+ },
+ "83": {
+  "tokens": 131595,
+  "chars": 544701,
+  "title": "From the Earth to the moon; and, round the moon",
+  "split": "train"
+ },
+ "833": {
+  "tokens": 140243,
+  "chars": 642507,
+  "title": "The Theory of the Leisure Class",
+  "split": "train"
+ },
+ "84": {
+  "tokens": 100482,
+  "chars": 419336,
+  "title": "Frankenstein; or, the modern prometheus",
+  "split": "train"
+ },
+ "844": {
+  "tokens": 33233,
+  "chars": 117286,
+  "title": "The Importance of Being Earnest: A Trivial Comedy for Serious People",
+  "split": "train"
+ },
+ "848": {
+  "tokens": 117732,
+  "chars": 437544,
+  "title": "The Black Arrow: A Tale of the Two Roses",
+  "split": "train"
+ },
+ "8492": {
+  "tokens": 103559,
+  "chars": 402610,
+  "title": "The King in Yellow",
+  "split": "train"
+ },
+ "86": {
+  "tokens": 167126,
+  "chars": 643602,
+  "title": "A Connecticut Yankee in King Arthur's Court",
+  "split": "train"
+ },
+ "863": {
+  "tokens": 84969,
+  "chars": 320887,
+  "title": "The Mysterious Affair at Styles",
+  "split": "train"
+ },
+ "8800": {
+  "tokens": 168437,
+  "chars": 604668,
+  "title": "The divine comedy",
+  "split": "val"
+ },
+ "883": {
+  "tokens": 475974,
+  "chars": 1811098,
+  "title": "Our Mutual Friend",
+  "split": "train"
+ },
+ "902": {
+  "tokens": 23075,
+  "chars": 88419,
+  "title": "The Happy Prince, and Other Tales",
+  "split": "train"
+ },
+ "910": {
+  "tokens": 99931,
+  "chars": 397558,
+  "title": "White Fang",
+  "split": "val"
+ },
+ "917": {
+  "tokens": 361641,
+  "chars": 1418687,
+  "title": "Barnaby Rudge: A Tale of the Riots of 'Eighty",
+  "split": "train"
+ },
+ "921": {
+  "tokens": 23676,
+  "chars": 94313,
+  "title": "De Profundis",
+  "split": "train"
+ },
+ "9296": {
+  "tokens": 148448,
+  "chars": 579556,
+  "title": "Clarissa Harlowe; or the history of a young lady \u2014 Volume 1",
+  "split": "train"
+ },
+ "940": {
+  "tokens": 204434,
+  "chars": 846655,
+  "title": "The Last of the Mohicans; A narrative of 1757",
+  "split": "val"
+ },
+ "946": {
+  "tokens": 31197,
+  "chars": 127628,
+  "title": "Lady Susan",
+  "split": "train"
+ },
+ "969": {
+  "tokens": 240148,
+  "chars": 935111,
+  "title": "The Tenant of Wildfell Hall",
+  "split": "train"
+ },
+ "972": {
+  "tokens": 94807,
+  "chars": 365086,
+  "title": "The Devil's Dictionary",
+  "split": "train"
+ },
+ "98": {
+  "tokens": 193824,
+  "chars": 757604,
+  "title": "A Tale of Two Cities",
+  "split": "train"
+ }
+}

@@ -1,0 +1,27 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+    15 Moby-Dick; or, The Whale                 T= 32767 rwkv nll 3.050 top1 0.421 | rosa cover 0.806 acc 0.094 acc|cover 0.117 | rosa 35ms rwkv 3819ms
+    20 Paradise Lost                            T= 32767 rwkv nll 3.708 top1 0.347 | rosa cover 0.840 acc 0.115 acc|cover 0.137 | rosa 20ms rwkv 3247ms
+    35 The Time Machine                         T= 32767 rwkv nll 2.819 top1 0.429 | rosa cover 0.839 acc 0.093 acc|cover 0.111 | rosa 37ms rwkv 3491ms
+    45 Anne of Green Gables                     T= 32767 rwkv nll 2.516 top1 0.456 | rosa cover 0.869 acc 0.126 acc|cover 0.145 | rosa 20ms rwkv 3481ms
+    55 The Wonderful Wizard of Oz               T= 32767 rwkv nll 2.011 top1 0.516 | rosa cover 0.899 acc 0.160 acc|cover 0.178 | rosa 23ms rwkv 3425ms
+   105 Persuasion                               T= 32767 rwkv nll 2.834 top1 0.411 | rosa cover 0.866 acc 0.100 acc|cover 0.115 | rosa 21ms rwkv 3572ms
+   110 Tess of the d'Urbervilles: A Pure Woman  T= 32767 rwkv nll 2.954 top1 0.418 | rosa cover 0.829 acc 0.100 acc|cover 0.120 | rosa 19ms rwkv 3198ms
+   120 Treasure Island                          T= 32767 rwkv nll 2.761 top1 0.430 | rosa cover 0.864 acc 0.119 acc|cover 0.137 | rosa 20ms rwkv 3530ms
+   125 A Girl of the Limberlost                 T= 32767 rwkv nll 2.696 top1 0.435 | rosa cover 0.875 acc 0.133 acc|cover 0.152 | rosa 20ms rwkv 3247ms
+   130 Orthodoxy                                T= 32767 rwkv nll 2.825 top1 0.448 | rosa cover 0.851 acc 0.114 acc|cover 0.134 | rosa 19ms rwkv 3589ms
+   140 The Jungle                               T= 32767 rwkv nll 2.690 top1 0.442 | rosa cover 0.847 acc 0.100 acc|cover 0.118 | rosa 20ms rwkv 3721ms
+   145 Middlemarch                              T= 32767 rwkv nll 2.860 top1 0.430 | rosa cover 0.837 acc 0.124 acc|cover 0.148 | rosa 19ms rwkv 3248ms
+   160 The Awakening, and Selected Short Storie T= 32767 rwkv nll 2.630 top1 0.449 | rosa cover 0.844 acc 0.120 acc|cover 0.143 | rosa 18ms rwkv 3169ms
+   175 The Phantom of the Opera                 T= 32767 rwkv nll 2.490 top1 0.475 | rosa cover 0.853 acc 0.148 acc|cover 0.173 | rosa 19ms rwkv 3458ms
+   205 Walden, and On The Duty Of Civil Disobed T= 32767 rwkv nll 3.036 top1 0.397 | rosa cover 0.828 acc 0.073 acc|cover 0.088 | rosa 21ms rwkv 3246ms
+   215 The call of the wild                     T= 32767 rwkv nll 2.854 top1 0.433 | rosa cover 0.846 acc 0.106 acc|cover 0.125 | rosa 28ms rwkv 3671ms
+   270 Dream Days                               T= 32767 rwkv nll 3.090 top1 0.408 | rosa cover 0.818 acc 0.077 acc|cover 0.094 | rosa 21ms rwkv 3172ms
+   285 The Lost Continent                       T= 32767 rwkv nll 2.932 top1 0.412 | rosa cover 0.845 acc 0.103 acc|cover 0.122 | rosa 19ms rwkv 3455ms
+   345 Dracula                                  T= 32767 rwkv nll 2.638 top1 0.439 | rosa cover 0.854 acc 0.102 acc|cover 0.119 | rosa 19ms rwkv 3393ms
+   500 The Adventures of Pinocchio              T= 32767 rwkv nll 2.126 top1 0.514 | rosa cover 0.887 acc 0.172 acc|cover 0.193 | rosa 19ms rwkv 3390ms
+   550 Silas Marner                             T= 32767 rwkv nll 2.859 top1 0.425 | rosa cover 0.849 acc 0.109 acc|cover 0.128 | rosa 19ms rwkv 3370ms
+   570 The Moravians in Georgia, 1735-1740      T= 32767 rwkv nll 2.552 top1 0.474 | rosa cover 0.833 acc 0.131 acc|cover 0.157 | rosa 18ms rwkv 3438ms
+   600 Notes from the Underground               T= 32767 rwkv nll 2.787 top1 0.426 | rosa cover 0.857 acc 0.106 acc|cover 0.124 | rosa 19ms rwkv 3439ms
+   610 Idylls of the King                       T= 32767 rwkv nll 3.266 top1 0.379 | rosa cover 0.878 acc 0.141 acc|cover 0.161 | rosa 19ms rwkv 3404ms

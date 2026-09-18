@@ -1,0 +1,15 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+baseline sklearn T=32768 nll 0.9543
+baseline networkx_algorithms T=32768 nll 1.1592
+baseline numpy_lib T=32768 nll 1.3407
+baseline pandas_core T=32768 nll 1.1557
+baseline pip_vendor T=32768 nll 0.6635
+baseline requests T=32768 nll 1.2363
+baseline sympy_core T=32768 nll 1.1443
+baseline torch_distributed T=32768 nll 1.1714
+baseline torch_export T=32768 nll 1.3400
+baseline torch_inductor T=32768 nll 0.5442
+baseline torch_onnx T=32768 nll 1.1517
+baseline transformers_models_l T=32768 nll 0.9608

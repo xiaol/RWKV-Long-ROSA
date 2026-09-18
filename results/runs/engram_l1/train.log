@@ -1,0 +1,27 @@
+device cuda:0 args {'name': 'engram_l1', 'mode': 'engram', 'model': '0.4b', 'device': 'cuda:0', 'ctx': 8192, 'steps': 1000, 'accum': 4, 'lr': None, 'lr_f': 0.001, 'wd': 0.01, 'K': 4, 'in_layer': 1, 'no_h': False, 'engram_rows': 65536, 'seed': 0, 'eval_every': 200, 'eval_books': 3, 'eval_t': 16384}
+trainable params: 17.310M
+train books 214 tokens 26.68M; val books ['105', '110', '1155']
+step     1 loss 3.0303 ema 3.0303 base 3.0303 gain +0.0000 lr 4.00e-05 7.62s/step
+step    10 loss 2.8979 ema 3.0105 base 2.8979 gain +0.0000 lr 2.20e-04 7.04s/step
+step    20 loss 2.7732 ema 2.9856 base 2.7732 gain +0.0000 lr 4.20e-04 6.96s/step
+step    30 loss 2.9034 ema 2.9581 base 2.9034 gain +0.0000 lr 6.19e-04 6.94s/step
+step    40 loss 2.7136 ema 2.9344 base 2.7136 gain +0.0000 lr 8.17e-04 6.92s/step
+step    50 loss 2.8406 ema 2.9090 base 2.8406 gain +0.0000 lr 9.94e-04 6.91s/step
+step    60 loss 2.6112 ema 2.8904 base 2.6112 gain +0.0000 lr 9.92e-04 6.91s/step
+step    70 loss 2.9069 ema 2.8711 base 2.9069 gain +0.0000 lr 9.89e-04 6.91s/step
+step    80 loss 2.7960 ema 2.8598 base 2.7960 gain +0.0000 lr 9.86e-04 6.91s/step
+step    90 loss 2.6271 ema 2.8398 base 2.6271 gain +0.0000 lr 9.82e-04 6.91s/step
+step   100 loss 2.6972 ema 2.8271 base 2.6972 gain +0.0000 lr 9.78e-04 6.90s/step
+step   110 loss 2.8127 ema 2.8184 base 2.8127 gain +0.0000 lr 9.73e-04 6.91s/step
+step   120 loss 2.7218 ema 2.8120 base 2.7218 gain +0.0000 lr 9.68e-04 6.91s/step
+step   130 loss 2.6308 ema 2.8076 base 2.6308 gain +0.0000 lr 9.63e-04 6.91s/step
+step   140 loss 2.8882 ema 2.8265 base 2.8882 gain +0.0000 lr 9.57e-04 6.84s/step
+step   150 loss 2.9993 ema 2.8197 base 2.9993 gain +0.0000 lr 9.51e-04 6.84s/step
+step   160 loss 3.1475 ema 2.8225 base 3.1475 gain +0.0000 lr 9.44e-04 6.85s/step
+step   170 loss 2.7484 ema 2.8188 base 2.7484 gain +0.0000 lr 9.37e-04 6.85s/step
+step   180 loss 2.9569 ema 2.8132 base 2.9569 gain +0.0000 lr 9.30e-04 6.85s/step
+step   190 loss 2.9200 ema 2.8113 base 2.9200 gain +0.0000 lr 9.22e-04 6.99s/step
+step   200 loss 2.5740 ema 2.8080 base 2.5740 gain +0.0000 lr 9.14e-04 7.26s/step
+EVAL step 200: val nll 2.8135 | [0-2048] 2.7859 (base 2.7859) [2048-8192] 2.7764 (base 2.7764) [8192-16384] 2.8482 (base 2.8482)
+step   210 loss 2.7817 ema 2.7955 base 2.7817 gain +0.0000 lr 9.06e-04 7.53s/step
+step   220 loss 2.9048 ema 2.7955 base 2.9048 gain +0.0000 lr 8.97e-04 7.75s/step

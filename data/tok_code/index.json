@@ -1,0 +1,146 @@
+{
+ "torch_inductor": {
+  "tokens": 326535,
+  "files": 192,
+  "split": "val",
+  "title": "torch_inductor"
+ },
+ "torch_dynamo": {
+  "tokens": 309643,
+  "files": 90,
+  "split": "train",
+  "title": "torch_dynamo"
+ },
+ "torch_distributed": {
+  "tokens": 308501,
+  "files": 294,
+  "split": "val",
+  "title": "torch_distributed"
+ },
+ "torch_nn": {
+  "tokens": 316850,
+  "files": 129,
+  "split": "train",
+  "title": "torch_nn"
+ },
+ "torch_onnx": {
+  "tokens": 321764,
+  "files": 147,
+  "split": "val",
+  "title": "torch_onnx"
+ },
+ "torch_fx": {
+  "tokens": 304270,
+  "files": 97,
+  "split": "train",
+  "title": "torch_fx"
+ },
+ "torch_export": {
+  "tokens": 91092,
+  "files": 17,
+  "split": "val",
+  "title": "torch_export"
+ },
+ "numpy_core": {
+  "tokens": 329879,
+  "files": 99,
+  "split": "train",
+  "title": "numpy_core"
+ },
+ "numpy_lib": {
+  "tokens": 343032,
+  "files": 58,
+  "split": "val",
+  "title": "numpy_lib"
+ },
+ "transformers_models_a": {
+  "tokens": 328755,
+  "files": 326,
+  "split": "train",
+  "title": "transformers_models_a"
+ },
+ "transformers_models_l": {
+  "tokens": 317289,
+  "files": 344,
+  "split": "val",
+  "title": "transformers_models_l"
+ },
+ "transformers_generation": {
+  "tokens": 238722,
+  "files": 21,
+  "split": "train",
+  "title": "transformers_generation"
+ },
+ "sympy_core": {
+  "tokens": 314623,
+  "files": 86,
+  "split": "val",
+  "title": "sympy_core"
+ },
+ "sympy_polys": {
+  "tokens": 499795,
+  "files": 180,
+  "split": "train",
+  "title": "sympy_polys"
+ },
+ "pip_vendor": {
+  "tokens": 258750,
+  "files": 77,
+  "split": "val",
+  "title": "pip_vendor"
+ },
+ "setuptools": {
+  "tokens": 308942,
+  "files": 317,
+  "split": "train",
+  "title": "setuptools"
+ },
+ "networkx_algorithms": {
+  "tokens": 346616,
+  "files": 392,
+  "split": "val",
+  "title": "networkx_algorithms"
+ },
+ "scipy_stats": {
+  "tokens": 344536,
+  "files": 110,
+  "split": "train",
+  "title": "scipy_stats"
+ },
+ "pandas_core": {
+  "tokens": 303077,
+  "files": 176,
+  "split": "val",
+  "title": "pandas_core"
+ },
+ "matplotlib": {
+  "tokens": 396287,
+  "files": 248,
+  "split": "train",
+  "title": "matplotlib"
+ },
+ "sklearn": {
+  "tokens": 319815,
+  "files": 671,
+  "split": "val",
+  "title": "sklearn"
+ },
+ "jinja2": {
+  "tokens": 123482,
+  "files": 25,
+  "split": "train",
+  "title": "jinja2"
+ },
+ "requests": {
+  "tokens": 54161,
+  "files": 19,
+  "split": "val",
+  "title": "requests"
+ },
+ "yaml": {
+  "tokens": 53861,
+  "files": 17,
+  "split": "train",
+  "title": "yaml"
+ }
+}

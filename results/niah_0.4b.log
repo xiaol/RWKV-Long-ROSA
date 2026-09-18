@@ -1,0 +1,22 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+device cuda:0
+{'L': 1024, 'depth': 0.1, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 1024, 'depth': 0.5, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 1024, 'depth': 0.9, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 2048, 'depth': 0.1, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 2048, 'depth': 0.5, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 2048, 'depth': 0.9, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 4096, 'depth': 0.1, 'n': 20, 'rwkv': 0.95, 'rosa': 1.0, 'gated': 1.0}
+{'L': 4096, 'depth': 0.5, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 4096, 'depth': 0.9, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 8192, 'depth': 0.1, 'n': 20, 'rwkv': 0.7, 'rosa': 1.0, 'gated': 1.0}
+{'L': 8192, 'depth': 0.5, 'n': 20, 'rwkv': 0.65, 'rosa': 1.0, 'gated': 1.0}
+{'L': 8192, 'depth': 0.9, 'n': 20, 'rwkv': 1.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 16384, 'depth': 0.1, 'n': 20, 'rwkv': 0.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 16384, 'depth': 0.5, 'n': 20, 'rwkv': 0.05, 'rosa': 1.0, 'gated': 1.0}
+{'L': 16384, 'depth': 0.9, 'n': 20, 'rwkv': 0.95, 'rosa': 1.0, 'gated': 1.0}
+{'L': 32768, 'depth': 0.1, 'n': 20, 'rwkv': 0.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 32768, 'depth': 0.5, 'n': 20, 'rwkv': 0.0, 'rosa': 1.0, 'gated': 1.0}
+{'L': 32768, 'depth': 0.9, 'n': 20, 'rwkv': 0.35, 'rosa': 1.0, 'gated': 1.0}

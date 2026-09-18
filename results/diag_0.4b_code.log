@@ -1,0 +1,27 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+  yaml yaml                                     T= 32767 rwkv nll 0.756 top1 0.813 | rosa cover 0.957 acc 0.601 acc|cover 0.628 | rosa 35ms rwkv 2568ms
+jinja2 jinja2                                   T= 32767 rwkv nll 1.313 top1 0.693 | rosa cover 0.916 acc 0.409 acc|cover 0.446 | rosa 21ms rwkv 3305ms
+sklearn sklearn                                  T= 32767 rwkv nll 0.954 top1 0.778 | rosa cover 0.931 acc 0.583 acc|cover 0.626 | rosa 21ms rwkv 1342ms
+matplotlib matplotlib                               T= 32767 rwkv nll 1.482 top1 0.664 | rosa cover 0.897 acc 0.333 acc|cover 0.371 | rosa 19ms rwkv 1322ms
+networkx_algorithms networkx_algorithms                      T= 32767 rwkv nll 1.159 top1 0.733 | rosa cover 0.924 acc 0.463 acc|cover 0.501 | rosa 19ms rwkv 1438ms
+numpy_core numpy_core                               T= 32767 rwkv nll 1.401 top1 0.679 | rosa cover 0.918 acc 0.433 acc|cover 0.472 | rosa 18ms rwkv 1341ms
+numpy_lib numpy_lib                                T= 32767 rwkv nll 1.341 top1 0.683 | rosa cover 0.922 acc 0.401 acc|cover 0.434 | rosa 20ms rwkv 1399ms
+pandas_core pandas_core                              T= 32767 rwkv nll 1.156 top1 0.732 | rosa cover 0.936 acc 0.493 acc|cover 0.526 | rosa 18ms rwkv 1339ms
+pip_vendor pip_vendor                               T= 32767 rwkv nll 0.664 top1 0.841 | rosa cover 0.927 acc 0.595 acc|cover 0.642 | rosa 17ms rwkv 1341ms
+requests requests                                 T= 32767 rwkv nll 1.236 top1 0.712 | rosa cover 0.923 acc 0.419 acc|cover 0.454 | rosa 19ms rwkv 1338ms
+scipy_stats scipy_stats                              T= 32767 rwkv nll 1.377 top1 0.682 | rosa cover 0.906 acc 0.391 acc|cover 0.432 | rosa 19ms rwkv 1339ms
+setuptools setuptools                               T= 32767 rwkv nll 1.362 top1 0.689 | rosa cover 0.918 acc 0.403 acc|cover 0.439 | rosa 18ms rwkv 1687ms
+sympy_core sympy_core                               T= 32767 rwkv nll 1.144 top1 0.737 | rosa cover 0.933 acc 0.502 acc|cover 0.537 | rosa 18ms rwkv 1337ms
+sympy_polys sympy_polys                              T= 32767 rwkv nll 1.037 top1 0.753 | rosa cover 0.946 acc 0.534 acc|cover 0.565 | rosa 19ms rwkv 1337ms
+torch_distributed torch_distributed                        T= 32767 rwkv nll 1.171 top1 0.740 | rosa cover 0.929 acc 0.507 acc|cover 0.546 | rosa 19ms rwkv 1342ms
+torch_dynamo torch_dynamo                             T= 32767 rwkv nll 1.477 top1 0.676 | rosa cover 0.917 acc 0.389 acc|cover 0.424 | rosa 19ms rwkv 1338ms
+torch_export torch_export                             T= 32767 rwkv nll 1.340 top1 0.707 | rosa cover 0.929 acc 0.472 acc|cover 0.508 | rosa 20ms rwkv 1390ms
+torch_fx torch_fx                                 T= 32767 rwkv nll 1.382 top1 0.684 | rosa cover 0.927 acc 0.391 acc|cover 0.422 | rosa 19ms rwkv 1339ms
+torch_inductor torch_inductor                           T= 32767 rwkv nll 0.544 top1 0.865 | rosa cover 0.963 acc 0.740 acc|cover 0.769 | rosa 21ms rwkv 1801ms
+torch_nn torch_nn                                 T= 32767 rwkv nll 1.039 top1 0.762 | rosa cover 0.935 acc 0.500 acc|cover 0.534 | rosa 17ms rwkv 1333ms
+torch_onnx torch_onnx                               T= 32767 rwkv nll 1.152 top1 0.740 | rosa cover 0.925 acc 0.492 acc|cover 0.531 | rosa 20ms rwkv 1745ms
+transformers_generation transformers_generation                  T= 32767 rwkv nll 1.166 top1 0.737 | rosa cover 0.929 acc 0.515 acc|cover 0.554 | rosa 21ms rwkv 1326ms
+transformers_models_a transformers_models_a                    T= 32767 rwkv nll 0.776 top1 0.819 | rosa cover 0.954 acc 0.711 acc|cover 0.745 | rosa 20ms rwkv 1324ms
+transformers_models_l transformers_models_l                    T= 32767 rwkv nll 0.961 top1 0.779 | rosa cover 0.943 acc 0.636 acc|cover 0.674 | rosa 20ms rwkv 1323ms

@@ -1,0 +1,20 @@
+{
+ "name": "pointer_k4",
+ "mode": "pointer",
+ "model": "0.4b",
+ "device": "cuda:1",
+ "ctx": 8192,
+ "steps": 1000,
+ "accum": 4,
+ "lr": null,
+ "lr_f": 0.001,
+ "wd": 0.01,
+ "K": 4,
+ "in_layer": 0,
+ "no_h": false,
+ "engram_rows": 65536,
+ "seed": 0,
+ "eval_every": 200,
+ "eval_books": 3,
+ "eval_t": 16384
+}

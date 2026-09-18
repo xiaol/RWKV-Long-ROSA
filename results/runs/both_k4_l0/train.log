@@ -1,0 +1,17 @@
+device cuda:3 args {'name': 'both_k4_l0', 'mode': 'both', 'model': '0.4b', 'device': 'cuda:3', 'ctx': 8192, 'steps': 1000, 'accum': 4, 'lr_in': 0.0001, 'lr_f': 0.001, 'wd': 0.01, 'K': 4, 'in_layer': 0, 'no_h': False, 'engram_rows': 65536, 'seed': 0, 'eval_every': 200, 'eval_books': 3, 'eval_t': 16384}
+trainable params: 1.168M (input-side 1.051M @ lr 0.0001)
+train books 214 tokens 26.68M; val books ['105', '110', '1155']
+step     1 loss 2.8570 ema 2.8570 base 2.8451 gain -0.0119 lr 4.00e-05 8.38s/step
+step    10 loss 2.8113 ema 2.8437 base 2.8021 gain -0.0092 lr 2.20e-04 7.25s/step
+step    20 loss 2.7606 ema 2.8405 base 2.7607 gain +0.0000 lr 4.20e-04 7.17s/step
+step    30 loss 2.9444 ema 2.8428 base 2.9447 gain +0.0002 lr 6.19e-04 6.82s/step
+step    40 loss 2.7804 ema 2.8523 base 2.7805 gain +0.0001 lr 8.17e-04 6.88s/step
+step    50 loss 3.0182 ema 2.8627 base 3.0214 gain +0.0032 lr 9.94e-04 6.93s/step
+step    60 loss 2.8059 ema 2.8819 base 2.8092 gain +0.0033 lr 9.92e-04 6.95s/step
+step    70 loss 3.1118 ema 2.8987 base 3.1133 gain +0.0015 lr 9.89e-04 6.99s/step
+step    80 loss 3.0625 ema 2.9278 base 3.0669 gain +0.0043 lr 9.86e-04 7.00s/step
+step    90 loss 2.9230 ema 2.9455 base 2.9369 gain +0.0140 lr 9.82e-04 7.00s/step
+step   100 loss 3.0060 ema 2.9667 base 3.0104 gain +0.0045 lr 9.78e-04 7.01s/step
+step   110 loss 3.1456 ema 2.9882 base 3.1586 gain +0.0130 lr 9.73e-04 7.01s/step
+step   120 loss 2.9977 ema 3.0081 base 3.0028 gain +0.0051 lr 9.68e-04 7.02s/step
+step   130 loss 2.9154 ema 3.0235 base 2.9199 gain +0.0045 lr 9.63e-04 7.20s/step

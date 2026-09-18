@@ -1,0 +1,33 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+    11 Alice's Adventures in Wonderland         T= 32767 rwkv nll 2.202 top1 0.496 | rosa cover 0.894 acc 0.161 acc|cover 0.180 | rosa 36ms rwkv 3633ms
+    12 Through the Looking-Glass                T= 32767 rwkv nll 2.285 top1 0.485 | rosa cover 0.891 acc 0.152 acc|cover 0.170 | rosa 27ms rwkv 4056ms
+    16 Peter Pan                                T= 32767 rwkv nll 2.688 top1 0.437 | rosa cover 0.868 acc 0.116 acc|cover 0.134 | rosa 30ms rwkv 3247ms
+    19 The Song of Hiawatha                     T= 32767 rwkv nll 2.363 top1 0.524 | rosa cover 0.884 acc 0.318 acc|cover 0.359 | rosa 25ms rwkv 3428ms
+    23 Narrative of the Life of Frederick Dougl T= 32767 rwkv nll 2.459 top1 0.478 | rosa cover 0.841 acc 0.105 acc|cover 0.125 | rosa 20ms rwkv 3187ms
+    27 Far from the Madding Crowd               T= 32767 rwkv nll 3.005 top1 0.409 | rosa cover 0.824 acc 0.100 acc|cover 0.121 | rosa 20ms rwkv 3289ms
+    28 The Fables of Aesop                      T= 20407 rwkv nll 2.326 top1 0.494 | rosa cover 0.819 acc 0.127 acc|cover 0.155 | rosa 12ms rwkv 2045ms
+    31 Plays of Sophocles: Oedipus the King; Oe T= 32767 rwkv nll 2.852 top1 0.449 | rosa cover 0.875 acc 0.203 acc|cover 0.232 | rosa 19ms rwkv 3562ms
+    32 Herland                                  T= 32767 rwkv nll 2.928 top1 0.396 | rosa cover 0.848 acc 0.083 acc|cover 0.098 | rosa 22ms rwkv 3168ms
+    33 The Scarlet Letter                       T= 32767 rwkv nll 2.873 top1 0.426 | rosa cover 0.819 acc 0.081 acc|cover 0.099 | rosa 21ms rwkv 3234ms
+    34 Zen and the Art of the Internet          T= 32767 rwkv nll 2.534 top1 0.482 | rosa cover 0.830 acc 0.139 acc|cover 0.168 | rosa 20ms rwkv 3378ms
+    36 The war of the worlds                    T= 32767 rwkv nll 2.822 top1 0.434 | rosa cover 0.842 acc 0.106 acc|cover 0.126 | rosa 19ms rwkv 3616ms
+    42 The strange case of Dr. Jekyll and Mr. H T= 32767 rwkv nll 2.743 top1 0.430 | rosa cover 0.850 acc 0.103 acc|cover 0.121 | rosa 20ms rwkv 3365ms
+    43 The strange case of Dr. Jekyll and Mr. H T= 32767 rwkv nll 2.748 top1 0.429 | rosa cover 0.850 acc 0.103 acc|cover 0.121 | rosa 18ms rwkv 3486ms
+    46 A Christmas Carol in Prose; Being a Ghos T= 32767 rwkv nll 2.698 top1 0.448 | rosa cover 0.848 acc 0.121 acc|cover 0.143 | rosa 18ms rwkv 3395ms
+    47 Anne of Avonlea                          T= 32767 rwkv nll 2.659 top1 0.445 | rosa cover 0.857 acc 0.118 acc|cover 0.137 | rosa 25ms rwkv 3183ms
+    62 A princess of Mars                       T= 32767 rwkv nll 2.617 top1 0.453 | rosa cover 0.838 acc 0.096 acc|cover 0.115 | rosa 31ms rwkv 3636ms
+    64 The gods of Mars                         T= 32767 rwkv nll 2.716 top1 0.443 | rosa cover 0.850 acc 0.113 acc|cover 0.133 | rosa 24ms rwkv 3250ms
+    67 The Black Experience in America          T= 32767 rwkv nll 2.343 top1 0.500 | rosa cover 0.824 acc 0.107 acc|cover 0.130 | rosa 17ms rwkv 3524ms
+    69 The 32nd Mersenne Prime                  T= 32767 rwkv nll 4.429 top1 0.049 | rosa cover 0.994 acc 0.010 acc|cover 0.011 | rosa 21ms rwkv 3840ms
+    73 The Red Badge of Courage: An Episode of  T= 32767 rwkv nll 2.940 top1 0.431 | rosa cover 0.841 acc 0.113 acc|cover 0.134 | rosa 21ms rwkv 3280ms
+    74 The Adventures of Tom Sawyer, Complete   T= 32767 rwkv nll 2.866 top1 0.428 | rosa cover 0.838 acc 0.116 acc|cover 0.139 | rosa 22ms rwkv 3170ms
+    76 Adventures of Huckleberry Finn           T= 32767 rwkv nll 2.791 top1 0.423 | rosa cover 0.882 acc 0.140 acc|cover 0.159 | rosa 22ms rwkv 3179ms
+    82 Ivanhoe: A Romance                       T= 32767 rwkv nll 2.813 top1 0.446 | rosa cover 0.816 acc 0.105 acc|cover 0.128 | rosa 21ms rwkv 3534ms
+    83 From the Earth to the moon; and, round t T= 32767 rwkv nll 2.496 top1 0.492 | rosa cover 0.820 acc 0.132 acc|cover 0.161 | rosa 21ms rwkv 3384ms
+    84 Frankenstein; or, the modern prometheus  T= 32767 rwkv nll 2.698 top1 0.433 | rosa cover 0.836 acc 0.084 acc|cover 0.100 | rosa 16ms rwkv 3383ms
+    86 A Connecticut Yankee in King Arthur's Co T= 32767 rwkv nll 2.901 top1 0.414 | rosa cover 0.847 acc 0.100 acc|cover 0.118 | rosa 18ms rwkv 3273ms
+    98 A Tale of Two Cities                     T= 32767 rwkv nll 2.846 top1 0.430 | rosa cover 0.842 acc 0.116 acc|cover 0.138 | rosa 19ms rwkv 3501ms
+   103 Around the World in Eighty Days          T= 32767 rwkv nll 2.439 top1 0.489 | rosa cover 0.828 acc 0.151 acc|cover 0.182 | rosa 21ms rwkv 3084ms
+   108 The Return of Sherlock Holmes            T= 32767 rwkv nll 2.515 top1 0.459 | rosa cover 0.850 acc 0.109 acc|cover 0.128 | rosa 19ms rwkv 3251ms

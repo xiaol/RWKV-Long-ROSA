@@ -1,0 +1,21 @@
+device cuda:0 args {'name': 'pointer_mix', 'mode': 'pointer', 'model': '0.4b', 'device': 'cuda:0', 'ctx': 8192, 'steps': 1000, 'accum': 4, 'lr_in': 0.0001, 'lr_f': 0.001, 'wd': 0.01, 'K': 4, 'in_layer': 0, 'no_h': False, 'engram_rows': 65536, 'seed': 0, 'data': 'tok,tok_code', 'eval_every': 200, 'eval_books': 3, 'eval_t': 16384}
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+trainable params: 0.117M (input-side 0.000M @ lr 0.0001)
+train books 226 tokens 30.23M; val books ['tok/105', 'tok/110', 'tok/1155', 'tok_code/torch_inductor', 'tok_code/torch_distributed']
+step     1 loss 2.8731 ema 2.8731 base 2.8434 gain -0.0298 lr 4.00e-05 4.71s/step
+step    10 loss 2.3076 ema 2.8237 base 2.2955 gain -0.0121 lr 2.20e-04 3.76s/step
+step    20 loss 2.4756 ema 2.7930 base 2.4748 gain -0.0008 lr 4.20e-04 3.68s/step
+step    30 loss 2.2473 ema 2.7667 base 2.2481 gain +0.0008 lr 6.19e-04 3.67s/step
+step    40 loss 2.6272 ema 2.7225 base 2.6272 gain +0.0000 lr 8.17e-04 3.65s/step
+step    50 loss 2.5828 ema 2.6949 base 2.5828 gain +0.0001 lr 9.94e-04 3.65s/step
+step    60 loss 2.7394 ema 2.6680 base 2.7395 gain +0.0001 lr 9.92e-04 3.65s/step
+step    70 loss 2.3408 ema 2.6351 base 2.3429 gain +0.0022 lr 9.89e-04 3.64s/step
+step    80 loss 3.0349 ema 2.6429 base 3.0371 gain +0.0022 lr 9.86e-04 3.65s/step
+step    90 loss 2.4075 ema 2.6572 base 2.4164 gain +0.0090 lr 9.82e-04 3.64s/step
+step   100 loss 2.8256 ema 2.6337 base 2.8257 gain +0.0001 lr 9.78e-04 3.64s/step
+step   110 loss 3.0507 ema 2.6452 base 3.0522 gain +0.0016 lr 9.73e-04 3.64s/step
+step   120 loss 2.0825 ema 2.5803 base 2.0829 gain +0.0004 lr 9.68e-04 3.64s/step
+step   130 loss 2.4086 ema 2.5755 base 2.4087 gain +0.0002 lr 9.63e-04 3.64s/step
+step   140 loss 2.4887 ema 2.5952 base 2.4896 gain +0.0009 lr 9.57e-04 3.63s/step
