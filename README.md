@@ -10,7 +10,51 @@ This repo implements ROSA as a fast CPU op, bolts it onto frozen RWKV-7 through 
 adapters, and measures what it fixes and what it does not.
 
 See `docs/BACKGROUND.md` for what ROSA is, how it differs from DeepSeek's Engram (parametric hashed
-n-gram tables), and the sources. `docs/RESULTS.md` has the full tables.
+n-gram tables), and the sources. `docs/RESULTS.md` has the full tables and ablations.
+
+## Headline results (frozen RWKV-7, 0.1M-parameter ROSA pointer head trained on 33M tokens)
+
+Needle in a haystack, exact match of a 6-digit code planted at depth 10 % / 50 % / 90 % (n = 20):
+
+| context | RWKV-7 0.4B | + ROSA head | RWKV-7 1.5B | + ROSA head |
+|---|---|---|---|---|
+| 16k | .00 / .05 / .95 | .90 / .95 / 1 | .45 / .55 / .90 | 1 / .95 / 1 |
+| 32k | .00 / .00 / .35 | .95 / .85 / 1 | .00 / .00 / .35 | 1 / .95 / 1 |
+| 32k, 4 distractor codes | .00 / .00 / .10 | .95 / 1 / 1 | | |
+| 64k (n = 10) | 0 / 0 / 0 | 1 / .9 / 1 | | |
+
+Passage copy, NLL per token on a 256-token passage repeated 30k tokens later: 3.15 → 0.16 (0.4B),
+2.80 → 0.28 (1.5B). Code (held-out Python source), NLL past 16k: 1.012 → 0.961 (0.4B, −5 % ppl overall).
+Prose: unchanged (the RNN's loss is flat with position; ROSA's prose candidates are 87 % wrong and the
+gate learns to ignore them). Engram-lite (parametric n-gram tables, 17M params) does nothing on any
+retrieval test, as expected for a memory that does not read the context.
+
+```
+$ python scripts/demo.py --run pointer_aug --L 32768 --depth 0.5 --seed 1
+book 'Siddhartha', context 32789 tokens, fact planted at token 16384 (50% depth)
+ROSA candidates for the next token (longest earlier-seen suffix first):
+  k=0: next=' 73'   matched suffix len   8  seen 1x  source pos 16392
+  k=1: next=' out'  matched suffix len   1  seen 154x
+RWKV-7 (frozen):            The secret code for Heron is':\n\n“What does the word,'
+RWKV-7 + ROSA pointer head: The secret code for Heron is' 734912.\nas a sort'
+  copy gate per step: 0.31 0.67 0.69 0.90 0.89 0.10 0.01 0.01
+```
+
+## How it works
+
+1. **ROSA** (`rosa/csrc`): a suffix automaton over the token ids seen so far. For each position it returns
+   the K longest suffixes that occurred earlier, each with the token that followed, the match length,
+   how often it was seen, and where. Exact, parameter-free, CPU, 12 µs/token streaming.
+2. **Frozen RWKV-7** produces its usual next-token distribution `p_rwkv` and hidden state `h`.
+3. **Pointer head**: `p = (1-g)·p_rwkv + g·Σ_k a_k·onehot(candidate_k)`. `g` and `a_k` are a small MLP
+   over `LayerNorm(h)`, `log(match len)`, `log(count)`, and `log p_rwkv(candidate_k)`. Trained with the LM
+   loss of the mixture on the target token only (no full-vocab softmax needed beyond the backbone's).
+4. **Repeat augmentation**: half of the training sequences get one to three earlier spans pasted later.
+   Novels contain too few long verbatim repeats for the gate to learn to trust a once-seen 8-token match at
+   30k tokens; this supplies them and turns a modest code-perplexity gain into full NIAH recovery.
+
+What did *not* work on a frozen backbone at this budget: injecting `Emb(ROSA(x))` into the residual stream
+(BlinkDL's input-side design) and the Engram-lite adapter both raised loss; see `docs/RESULTS.md` §2d.
 
 ## What is here
 

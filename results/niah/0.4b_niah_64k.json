@@ -1,0 +1,29 @@
+[
+ {
+  "L": 65536,
+  "depth": 0.1,
+  "n": 10,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug": 1.0
+ },
+ {
+  "L": 65536,
+  "depth": 0.5,
+  "n": 10,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug": 0.9
+ },
+ {
+  "L": 65536,
+  "depth": 0.9,
+  "n": 10,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug": 1.0
+ }
+]

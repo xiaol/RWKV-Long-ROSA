@@ -1,0 +1,56 @@
+[
+ {
+  "L": 16384,
+  "depth": 0.1,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug_1.5b": 1.0
+ },
+ {
+  "L": 16384,
+  "depth": 0.5,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug_1.5b": 0.95
+ },
+ {
+  "L": 16384,
+  "depth": 0.9,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug_1.5b": 1.0
+ },
+ {
+  "L": 32768,
+  "depth": 0.1,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug_1.5b": 1.0
+ },
+ {
+  "L": 32768,
+  "depth": 0.5,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug_1.5b": 0.95
+ },
+ {
+  "L": 32768,
+  "depth": 0.9,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_aug_1.5b": 1.0
+ }
+]

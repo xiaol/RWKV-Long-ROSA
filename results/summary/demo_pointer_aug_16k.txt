@@ -1,0 +1,16 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+book 'Siddhartha', context 16405 tokens, fact planted at token 3276 (20% depth)
+
+ROSA candidates for the next token (longest earlier-seen suffix first):
+  k=0: next=' 73'        matched suffix len   8  seen 1x  source pos 3284
+  k=1: next=' his'       matched suffix len   1  seen 73x  source pos 15848
+
+RWKV-7 (frozen):
+  The secret code for Heron is': 1. The secret code for Hero'
+
+RWKV-7 + ROSA pointer head (pointer_aug):
+  The secret code for Heron is' 734912.\narm, and'
+  copy gate per step: 0.63 0.67 0.78 0.76 0.79 0.67 0.98 0.93
+

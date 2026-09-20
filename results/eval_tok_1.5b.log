@@ -1,0 +1,49 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+baseline 15 T=32768 nll 2.6841
+baseline 20 T=32768 nll 3.0744
+baseline 35 T=32768 nll 2.5334
+baseline 45 T=32768 nll 2.1840
+baseline 55 T=32768 nll 1.7031
+baseline 105 T=32768 nll 2.5452
+baseline 110 T=32768 nll 2.6714
+baseline 120 T=32768 nll 2.4294
+baseline 125 T=32768 nll 2.4403
+baseline 130 T=32768 nll 2.5535
+baseline 140 T=32768 nll 2.4032
+baseline 145 T=32768 nll 2.5864
+pointer_aug_1.5b 15 nll 2.6838 (base 2.6841) mean gate 0.008
+pointer_aug_1.5b 20 nll 3.0733 (base 3.0744) mean gate 0.012
+pointer_aug_1.5b 35 nll 2.5337 (base 2.5334) mean gate 0.007
+pointer_aug_1.5b 45 nll 2.1831 (base 2.1840) mean gate 0.010
+pointer_aug_1.5b 55 nll 1.7025 (base 1.7031) mean gate 0.009
+pointer_aug_1.5b 105 nll 2.5458 (base 2.5452) mean gate 0.009
+pointer_aug_1.5b 110 nll 2.6707 (base 2.6714) mean gate 0.008
+pointer_aug_1.5b 120 nll 2.4283 (base 2.4294) mean gate 0.012
+pointer_aug_1.5b 125 nll 2.4404 (base 2.4403) mean gate 0.011
+pointer_aug_1.5b 130 nll 2.5543 (base 2.5535) mean gate 0.007
+pointer_aug_1.5b 140 nll 2.4032 (base 2.4032) mean gate 0.007
+pointer_aug_1.5b 145 nll 2.5856 (base 2.5864) mean gate 0.009
+
+### NLL by position (val books=12, max_t=32768)
+        bucket      ntok           base pointer_aug_1.5b
+     (0, 1024)     12288   2.1890(+0.000)   2.1884(-0.001)
+  (1024, 2048)     12288   2.5631(+0.000)   2.5623(-0.001)
+  (2048, 4096)     24576   2.4587(+0.000)   2.4591(+0.000)
+  (4096, 8192)     49152   2.4716(+0.000)   2.4719(+0.000)
+ (8192, 16384)     98304   2.5224(+0.000)   2.5220(-0.000)
+(16384, 32768)    196608   2.4846(+0.000)   2.4842(-0.000)
+
+### NLL by ROSA match length (val books=12, max_t=32768)
+        bucket      ntok           base pointer_aug_1.5b
+        (0, 0)     58210   1.9054(+0.000)   1.9054(+0.000)
+        (1, 1)    168132   2.4640(+0.000)   2.4636(-0.000)
+        (2, 2)    113832   2.7589(+0.000)   2.7586(-0.000)
+        (3, 3)     36591   2.7673(+0.000)   2.7675(+0.000)
+        (4, 5)     13744   2.2654(+0.000)   2.2661(+0.001)
+        (6, 8)      2289   2.0329(+0.000)   2.0244(-0.008)
+       (9, 16)       389   1.1450(+0.000)   1.1182(-0.027)
+(17, 1000000000)        29   0.8315(+0.000)   0.8062(-0.025)
+
+overall: {'base': '2.4840 (ppl 11.99)', 'pointer_aug_1.5b': '2.4837 (ppl 11.99)'}

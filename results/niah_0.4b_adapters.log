@@ -10,3 +10,4 @@ device cuda:0
 {'L': 16384, 'depth': 0.9, 'n': 20, 'rwkv': 0.0, 'rosa': 0.0, 'gated': 0.0, 'pointer_mix': 0.75, 'pointer_aug': 1.0, 'both_k4_l2': 0.55}
 {'L': 32768, 'depth': 0.1, 'n': 20, 'rwkv': 0.0, 'rosa': 0.0, 'gated': 0.0, 'pointer_mix': 0.0, 'pointer_aug': 0.95, 'both_k4_l2': 0.0}
 {'L': 32768, 'depth': 0.5, 'n': 20, 'rwkv': 0.0, 'rosa': 0.0, 'gated': 0.0, 'pointer_mix': 0.0, 'pointer_aug': 0.85, 'both_k4_l2': 0.0}
+{'L': 32768, 'depth': 0.9, 'n': 20, 'rwkv': 0.0, 'rosa': 0.0, 'gated': 0.0, 'pointer_mix': 0.3, 'pointer_aug': 1.0, 'both_k4_l2': 0.1}

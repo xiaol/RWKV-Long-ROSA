@@ -1,0 +1,7 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+device cuda:3
+{'L': 65536, 'depth': 0.1, 'n': 10, 'rwkv': 0.0, 'rosa': 0.0, 'gated': 0.0, 'pointer_aug': 1.0}
+{'L': 65536, 'depth': 0.5, 'n': 10, 'rwkv': 0.0, 'rosa': 0.0, 'gated': 0.0, 'pointer_aug': 0.9}
+{'L': 65536, 'depth': 0.9, 'n': 10, 'rwkv': 0.0, 'rosa': 0.0, 'gated': 0.0, 'pointer_aug': 1.0}

@@ -1,0 +1,49 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+baseline sklearn T=32768 nll 0.7347
+baseline networkx_algorithms T=32768 nll 0.9350
+baseline numpy_lib T=32768 nll 0.4408
+baseline pandas_core T=32768 nll 0.6153
+baseline pip_vendor T=32768 nll 0.0411
+baseline requests T=32768 nll 0.5990
+baseline sympy_core T=32768 nll 0.9326
+baseline torch_distributed T=32768 nll 0.9787
+baseline torch_export T=32768 nll 1.0997
+baseline torch_inductor T=32768 nll 0.4682
+baseline torch_onnx T=32768 nll 0.9401
+baseline transformers_models_l T=32768 nll 0.6080
+pointer_aug_1.5b sklearn nll 0.7242 (base 0.7347) mean gate 0.143
+pointer_aug_1.5b networkx_algorithms nll 0.9137 (base 0.9350) mean gate 0.066
+pointer_aug_1.5b numpy_lib nll 0.4379 (base 0.4408) mean gate 0.037
+pointer_aug_1.5b pandas_core nll 0.6099 (base 0.6153) mean gate 0.089
+pointer_aug_1.5b pip_vendor nll 0.0412 (base 0.0411) mean gate 0.016
+pointer_aug_1.5b requests nll 0.5799 (base 0.5990) mean gate 0.046
+pointer_aug_1.5b sympy_core nll 0.9296 (base 0.9326) mean gate 0.057
+pointer_aug_1.5b torch_distributed nll 0.9624 (base 0.9787) mean gate 0.142
+pointer_aug_1.5b torch_export nll 1.0745 (base 1.0997) mean gate 0.088
+pointer_aug_1.5b torch_inductor nll 0.4620 (base 0.4682) mean gate 0.281
+pointer_aug_1.5b torch_onnx nll 0.9254 (base 0.9401) mean gate 0.085
+pointer_aug_1.5b transformers_models_l nll 0.5437 (base 0.6080) mean gate 0.206
+
+### NLL by position (val books=12, max_t=32768)
+        bucket      ntok           base pointer_aug_1.5b
+     (0, 1024)     12288   1.0282(+0.000)   1.0226(-0.006)
+  (1024, 2048)     12288   0.9264(+0.000)   0.9153(-0.011)
+  (2048, 4096)     24576   0.8900(+0.000)   0.8856(-0.004)
+  (4096, 8192)     49152   0.7553(+0.000)   0.7478(-0.007)
+ (8192, 16384)     98304   0.6765(+0.000)   0.6606(-0.016)
+(16384, 32768)    196608   0.6384(+0.000)   0.6183(-0.020)
+
+### NLL by ROSA match length (val books=12, max_t=32768)
+        bucket      ntok           base pointer_aug_1.5b
+        (0, 0)     26695   1.1532(+0.000)   1.1532(+0.000)
+        (1, 1)     81990   1.1553(+0.000)   1.1540(-0.001)
+        (2, 2)     64819   0.9156(+0.000)   0.9024(-0.013)
+        (3, 3)     42088   0.7154(+0.000)   0.7060(-0.009)
+        (4, 5)     48516   0.4981(+0.000)   0.4828(-0.015)
+        (6, 8)     36102   0.4352(+0.000)   0.4219(-0.013)
+       (9, 16)     34754   0.3186(+0.000)   0.2997(-0.019)
+(17, 1000000000)     58252   0.1565(+0.000)   0.1059(-0.051)
+
+overall: {'base': '0.6994 (ppl 2.01)', 'pointer_aug_1.5b': '0.6837 (ppl 1.98)'}

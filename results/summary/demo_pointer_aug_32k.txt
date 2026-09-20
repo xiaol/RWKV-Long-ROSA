@@ -1,0 +1,16 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+book 'The Man Who Was Thursday: A Nightmare', context 32789 tokens, fact planted at token 16384 (50% depth)
+
+ROSA candidates for the next token (longest earlier-seen suffix first):
+  k=0: next=' 73'        matched suffix len   8  seen 1x  source pos 16392
+  k=1: next=' out'       matched suffix len   1  seen 154x  source pos 32161
+
+RWKV-7 (frozen):
+  The secret code for Heron is':\n\n“What does the word,'
+
+RWKV-7 + ROSA pointer head (pointer_aug):
+  The secret code for Heron is' 734912.\nas a sort'
+  copy gate per step: 0.31 0.67 0.69 0.90 0.89 0.10 0.01 0.01
+
