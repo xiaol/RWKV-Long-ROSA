@@ -1,0 +1,6 @@
+device cuda:2 args {'name': 'pointer_aug_1.5b', 'mode': 'pointer', 'model': '1.5b', 'device': 'cuda:2', 'ctx': 8192, 'steps': 1000, 'accum': 4, 'lr_in': 0.0001, 'lr_f': 0.001, 'wd': 0.01, 'K': 4, 'in_layer': 0, 'no_h': False, 'no_lpc': False, 'engram_rows': 65536, 'seed': 0, 'data': 'tok,tok_code', 'repeat_aug': 0.5, 'eval_every': 200, 'eval_books': 3, 'eval_t': 16384}
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+trainable params: 0.184M (input-side 0.000M @ lr 0.0001)
+train books 226 tokens 30.23M; val books ['tok/105', 'tok/110', 'tok/1155', 'tok_code/torch_inductor', 'tok_code/torch_distributed']

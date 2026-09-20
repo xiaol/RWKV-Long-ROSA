@@ -1,0 +1,30 @@
+60 cases
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+base {512: 'copy 1.107 / around 2.769', 2048: 'copy 2.222 / around 3.026', 8192: 'copy 2.854 / around 2.817', 16384: 'copy 2.952 / around 2.864', 30000: 'copy 3.148 / around 3.092'}
+pointer_k4 {512: 'copy 0.825 / around 2.768', 2048: 'copy 1.496 / around 3.025', 8192: 'copy 1.968 / around 2.815', 16384: 'copy 1.962 / around 2.858', 30000: 'copy 2.031 / around 3.087'}
+pointer_mix {512: 'copy 0.800 / around 2.768', 2048: 'copy 1.434 / around 3.025', 8192: 'copy 2.020 / around 2.815', 16384: 'copy 2.017 / around 2.858', 30000: 'copy 2.059 / around 3.087'}
+Traceback (most recent call last):
+  File "/root/x/RWKV-Long-ROSA/scripts/copy_eval.py", line 75, in <module>
+    m, h, K = build(run); run_model(run, m, h, K); del m, h; torch.cuda.empty_cache()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/x/RWKV-Long-ROSA/scripts/copy_eval.py", line 67, in run_model
+    nll = nll_seq(model, head, K, cs["seq"]); c = cs["c"] - 1; P = args.P  # nll index t predicts token t+1
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/x/RWKV-Long-ROSA/scripts/copy_eval.py", line 40, in nll_seq
+    logits, h = model(inp.to(dev), aux=aux, return_hidden=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/x/RWKV-Long-ROSA/scripts/../rosa/rwkv7.py", line 164, in forward
+    x = x + ad(x, aux)
+        ~~^~~~~~~~~~~~
+RuntimeError: The size of tensor a (2112) must match the size of tensor b (2111) at non-singleton dimension 1

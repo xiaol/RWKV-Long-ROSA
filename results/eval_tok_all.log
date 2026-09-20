@@ -1,0 +1,97 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+baseline 15 T=32768 nll 3.0496
+baseline 20 T=32768 nll 3.7080
+baseline 35 T=32768 nll 2.8188
+baseline 45 T=32768 nll 2.5164
+baseline 55 T=32768 nll 2.0112
+baseline 105 T=32768 nll 2.8341
+baseline 110 T=32768 nll 2.9543
+baseline 120 T=32768 nll 2.7613
+baseline 125 T=32768 nll 2.6958
+baseline 130 T=32768 nll 2.8248
+baseline 140 T=32768 nll 2.6903
+baseline 145 T=32768 nll 2.8600
+pointer_k4 15 nll 3.0480 (base 3.0496) mean gate 0.013
+pointer_k4 20 nll 3.7006 (base 3.7080) mean gate 0.025
+pointer_k4 35 nll 2.8174 (base 2.8188) mean gate 0.010
+pointer_k4 45 nll 2.5128 (base 2.5164) mean gate 0.016
+pointer_k4 55 nll 2.0083 (base 2.0112) mean gate 0.018
+pointer_k4 105 nll 2.8331 (base 2.8341) mean gate 0.012
+pointer_k4 110 nll 2.9508 (base 2.9543) mean gate 0.017
+pointer_k4 120 nll 2.7571 (base 2.7613) mean gate 0.016
+pointer_k4 125 nll 2.6937 (base 2.6958) mean gate 0.017
+pointer_k4 130 nll 2.8243 (base 2.8248) mean gate 0.011
+pointer_k4 140 nll 2.6880 (base 2.6903) mean gate 0.012
+pointer_k4 145 nll 2.8579 (base 2.8600) mean gate 0.016
+pointer_mix 15 nll 3.0482 (base 3.0496) mean gate 0.011
+pointer_mix 20 nll 3.7008 (base 3.7080) mean gate 0.022
+pointer_mix 35 nll 2.8176 (base 2.8188) mean gate 0.008
+pointer_mix 45 nll 2.5132 (base 2.5164) mean gate 0.012
+pointer_mix 55 nll 2.0084 (base 2.0112) mean gate 0.018
+pointer_mix 105 nll 2.8333 (base 2.8341) mean gate 0.011
+pointer_mix 110 nll 2.9510 (base 2.9543) mean gate 0.014
+pointer_mix 120 nll 2.7571 (base 2.7613) mean gate 0.015
+pointer_mix 125 nll 2.6937 (base 2.6958) mean gate 0.017
+pointer_mix 130 nll 2.8243 (base 2.8248) mean gate 0.008
+pointer_mix 140 nll 2.6883 (base 2.6903) mean gate 0.009
+pointer_mix 145 nll 2.8582 (base 2.8600) mean gate 0.015
+both_k4_l2 15 nll 3.0925 (base 3.0496) mean gate 0.017
+both_k4_l2 20 nll 3.7758 (base 3.7080) mean gate 0.025
+both_k4_l2 35 nll 2.8532 (base 2.8188) mean gate 0.011
+both_k4_l2 45 nll 2.5522 (base 2.5164) mean gate 0.017
+both_k4_l2 55 nll 2.0413 (base 2.0112) mean gate 0.022
+both_k4_l2 105 nll 2.8675 (base 2.8341) mean gate 0.014
+both_k4_l2 110 nll 2.9907 (base 2.9543) mean gate 0.020
+both_k4_l2 120 nll 2.8033 (base 2.7613) mean gate 0.018
+both_k4_l2 125 nll 2.7256 (base 2.6958) mean gate 0.020
+both_k4_l2 130 nll 2.8585 (base 2.8248) mean gate 0.009
+both_k4_l2 140 nll 2.7308 (base 2.6903) mean gate 0.014
+both_k4_l2 145 nll 2.8965 (base 2.8600) mean gate 0.020
+input_k4_l2 15 nll 3.0973 (base 3.0496) mean gate 0.000
+input_k4_l2 20 nll 3.7833 (base 3.7080) mean gate 0.000
+input_k4_l2 35 nll 2.8528 (base 2.8188) mean gate 0.000
+input_k4_l2 45 nll 2.5554 (base 2.5164) mean gate 0.000
+input_k4_l2 55 nll 2.0464 (base 2.0112) mean gate 0.000
+input_k4_l2 105 nll 2.8693 (base 2.8341) mean gate 0.000
+input_k4_l2 110 nll 2.9940 (base 2.9543) mean gate 0.000
+input_k4_l2 120 nll 2.8060 (base 2.7613) mean gate 0.000
+input_k4_l2 125 nll 2.7280 (base 2.6958) mean gate 0.000
+input_k4_l2 130 nll 2.8593 (base 2.8248) mean gate 0.000
+input_k4_l2 140 nll 2.7316 (base 2.6903) mean gate 0.000
+input_k4_l2 145 nll 2.8996 (base 2.8600) mean gate 0.000
+engram_l1 15 nll 3.0104 (base 3.0496) mean gate 0.000
+engram_l1 20 nll 3.7494 (base 3.7080) mean gate 0.000
+engram_l1 35 nll 2.8398 (base 2.8188) mean gate 0.000
+engram_l1 45 nll 2.5338 (base 2.5164) mean gate 0.000
+engram_l1 55 nll 2.0305 (base 2.0112) mean gate 0.000
+engram_l1 105 nll 2.8514 (base 2.8341) mean gate 0.000
+engram_l1 110 nll 2.9807 (base 2.9543) mean gate 0.000
+engram_l1 120 nll 2.7815 (base 2.7613) mean gate 0.000
+engram_l1 125 nll 2.7150 (base 2.6958) mean gate 0.000
+engram_l1 130 nll 2.8440 (base 2.8248) mean gate 0.000
+engram_l1 140 nll 2.7175 (base 2.6903) mean gate 0.000
+engram_l1 145 nll 2.8804 (base 2.8600) mean gate 0.000
+
+### NLL by position (val books=12, max_t=32768)
+        bucket      ntok           base     pointer_k4    pointer_mix     both_k4_l2    input_k4_l2      engram_l1
+     (0, 1024)     12288   2.6090(+0.000)   2.6085(-0.000)   2.6087(-0.000)   2.6306(+0.022)   2.6300(+0.021)   2.6378(+0.029)
+  (1024, 2048)     12288   2.9030(+0.000)   2.9017(-0.001)   2.9018(-0.001)   2.9390(+0.036)   2.9418(+0.039)   2.9322(+0.029)
+  (2048, 4096)     24576   2.8125(+0.000)   2.8118(-0.001)   2.8119(-0.001)   2.8460(+0.034)   2.8488(+0.036)   2.8354(+0.023)
+  (4096, 8192)     49152   2.8103(+0.000)   2.8094(-0.001)   2.8095(-0.001)   2.8500(+0.040)   2.8533(+0.043)   2.8297(+0.019)
+ (8192, 16384)     98304   2.8342(+0.000)   2.8317(-0.003)   2.8319(-0.002)   2.8691(+0.035)   2.8720(+0.038)   2.8445(+0.010)
+(16384, 32768)    196608   2.8050(+0.000)   2.8013(-0.004)   2.8014(-0.004)   2.8471(+0.042)   2.8502(+0.045)   2.8235(+0.018)
+
+### NLL by ROSA match length (val books=12, max_t=32768)
+        bucket      ntok           base     pointer_k4    pointer_mix     both_k4_l2    input_k4_l2      engram_l1
+        (0, 0)     58210   2.2256(+0.000)   2.2256(+0.000)   2.2256(+0.000)   2.2485(+0.023)   2.2483(+0.023)   2.2520(+0.026)
+        (1, 1)    168132   2.8034(+0.000)   2.8017(-0.002)   2.8018(-0.002)   2.8512(+0.048)   2.8530(+0.050)   2.8209(+0.017)
+        (2, 2)    113832   3.0945(+0.000)   3.0914(-0.003)   3.0915(-0.003)   3.1339(+0.039)   3.1371(+0.043)   3.1096(+0.015)
+        (3, 3)     36591   3.0528(+0.000)   3.0475(-0.005)   3.0476(-0.005)   3.0823(+0.029)   3.0861(+0.033)   3.0658(+0.013)
+        (4, 5)     13744   2.5095(+0.000)   2.4984(-0.011)   2.4997(-0.010)   2.5293(+0.020)   2.5449(+0.035)   2.5215(+0.012)
+        (6, 8)      2289   2.2714(+0.000)   2.2445(-0.027)   2.2472(-0.024)   2.2709(-0.001)   2.3088(+0.037)   2.2889(+0.017)
+       (9, 16)       389   1.3197(+0.000)   1.2836(-0.036)   1.2852(-0.034)   1.3153(-0.004)   1.4171(+0.097)   1.3357(+0.016)
+(17, 1000000000)        29   0.8170(+0.000)   0.8141(-0.003)   0.8166(-0.000)   0.7653(-0.052)   0.7907(-0.026)   0.8054(-0.012)
+
+overall: {'base': '2.8104 (ppl 16.62)', 'pointer_k4': '2.8077 (ppl 16.57)', 'pointer_mix': '2.8078 (ppl 16.57)', 'both_k4_l2': '2.8490 (ppl 17.27)', 'input_k4_l2': '2.8519 (ppl 17.32)', 'engram_l1': '2.8279 (ppl 16.91)'}

@@ -20,9 +20,9 @@ ap.add_argument("--name", required=True); ap.add_argument("--mode", default="bot
 ap.add_argument("--model", default="0.4b"); ap.add_argument("--device", default="auto")
 ap.add_argument("--ctx", type=int, default=8192); ap.add_argument("--steps", type=int, default=1200); ap.add_argument("--accum", type=int, default=4)
 ap.add_argument("--lr_in", type=float, default=1e-4, help="lr for input-side adapters (ROSA input / Engram)"); ap.add_argument("--lr_f", type=float, default=1e-3); ap.add_argument("--wd", type=float, default=0.01)
-ap.add_argument("--K", type=int, default=4); ap.add_argument("--in_layer", type=int, default=0); ap.add_argument("--no_h", action="store_true")
+ap.add_argument("--K", type=int, default=4); ap.add_argument("--in_layer", type=int, default=0); ap.add_argument("--no_h", action="store_true"); ap.add_argument("--no_lpc", action="store_true", help="gate does not see RWKV's prob of the candidate")
 ap.add_argument("--engram_rows", type=int, default=65536); ap.add_argument("--seed", type=int, default=0)
-ap.add_argument("--data", default="tok", help="comma-separated data dirs under data/ (sampled proportionally to tokens)"); ap.add_argument("--eval_every", type=int, default=200); ap.add_argument("--eval_books", type=int, default=3); ap.add_argument("--eval_t", type=int, default=16384)
+ap.add_argument("--data", default="tok", help="comma-separated data dirs under data/ (sampled proportionally to tokens)"); ap.add_argument("--repeat_aug", type=float, default=0.0, help="prob. of pasting an earlier 64-512 token span later in the sample (teaches long-distance copy)"); ap.add_argument("--eval_every", type=int, default=200); ap.add_argument("--eval_books", type=int, default=3); ap.add_argument("--eval_t", type=int, default=16384)
 args = ap.parse_args()
 torch.manual_seed(args.seed); random.seed(args.seed); np.random.seed(args.seed)
 if args.device == "auto": args.device = pick_gpu(24000)
@@ -52,7 +52,7 @@ if use_engram:
     eg = EngramLiteAdapter(C, rows=args.engram_rows, seed=args.seed).to(dev); model.add_adapter(args.in_layer, eg); params_in += list(eg.parameters())
 head = None
 if use_pointer:
-    head = RosaPointerHead(C, K=args.K, use_h=not args.no_h).to(dev); params += list(head.parameters())
+    head = RosaPointerHead(C, K=args.K, use_h=not args.no_h, use_lpc=not args.no_lpc).to(dev); params += list(head.parameters())
 model.grad_ckpt = use_input or use_engram
 n_params = sum(p.numel() for p in params + params_in); P(f"trainable params: {n_params/1e6:.3f}M (input-side {sum(p.numel() for p in params_in)/1e6:.3f}M @ lr {args.lr_in})")
 groups = ([{"params": params, "lr": args.lr_f}] if params else []) + ([{"params": params_in, "lr": args.lr_in}] if params_in else [])
@@ -69,7 +69,12 @@ P(f"train books {len(train_books)} tokens {sum(len(v) for v in train_tok.values(
 def sample_batch():
     b = np.random.choice(train_books, p=weights); a = train_tok[b]
     s = random.randrange(0, len(a) - args.ctx - 1)
-    return torch.from_numpy(a[s: s + args.ctx + 1].astype(np.int64))[None]
+    seq = a[s: s + args.ctx + 1].astype(np.int64).copy()
+    if args.repeat_aug > 0 and random.random() < args.repeat_aug:
+        for _ in range(random.randint(1, 3)):
+            P = random.randint(64, 512); src_ = random.randrange(0, len(seq) - 2 * P - 1); dst_ = random.randrange(src_ + P, len(seq) - P)
+            seq[dst_: dst_ + P] = seq[src_: src_ + P]
+    return torch.from_numpy(seq)[None]
 
 def compute_loss(x, need_grad=True):
     """x: [1, T+1] int64 on CPU. returns (loss_mixture, loss_backbone) as means over T."""
@@ -123,7 +128,8 @@ for step in range(1, args.steps + 1):
     opt.step(); sched.step()
     ema = acc_loss if ema is None else 0.98 * ema + 0.02 * acc_loss
     if step % 10 == 0 or step == 1:
-        P(f"step {step:5d} loss {acc_loss:.4f} ema {ema:.4f} base {acc_base:.4f} gain {acc_base-acc_loss:+.4f} lr {sched.get_last_lr()[0]:.2e} {(time.time()-t0)/step:.2f}s/step")
+        gain_s = f"base {acc_base:.4f} gain {acc_base-acc_loss:+.4f}" if head is not None else "(input-side adapter: frozen-baseline comparison only in eval_adapter.py)"
+        P(f"step {step:5d} loss {acc_loss:.4f} ema {ema:.4f} {gain_s} lr {sched.get_last_lr()[0]:.2e} {(time.time()-t0)/step:.2f}s/step")
     if step % args.eval_every == 0 or step == args.steps:
         v, s = evaluate(); P(f"EVAL step {step}: {s}")
         torch.save({"adapters": model.adapters.state_dict(), "head": head.state_dict() if head is not None else None, "args": vars(args), "step": step, "val": v}, f"{run}/ckpt.pt")

@@ -1,7 +1,7 @@
 import random, sys, os, time
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import torch
-from rosa.ops import rosa_tokens, rosa_qkv_symbols
+from rosa.ops import rosa_tokens, rosa_qkv_symbols, RosaStream
 from rosa.reference import rosa_tokens_ref, rosa_tokens_brute, rosa_qkv_brute
 
 
@@ -63,6 +63,24 @@ def test_chain_and_counts():
                 assert int(pred[0, i, k]) == x[got[k][1]]
 
 
+def test_stream_matches_batch():
+    rng = random.Random(3)
+    for trial in range(60):
+        T = rng.randint(1, 200); V = rng.choice([2, 5, 1000])
+        x = [rng.randrange(V) for _ in range(T)]
+        if rng.random() < 0.5:
+            L = rng.randint(1, T); x = (x[:L] * (T // L + 1))[:T]
+        K = 3
+        pred, mlen, src, cnt = rosa_tokens(torch.tensor([x]), K=K)
+        st = RosaStream(T, K)
+        for i, t in enumerate(x):
+            p, m, s_, c = st.push(t)
+            assert p.tolist() == pred[0, i].tolist() and m.tolist() == mlen[0, i].tolist() and s_.tolist() == src[0, i].tolist() and c.tolist() == cnt[0, i].tolist(), (x[: i + 1],)
+    x = torch.randint(0, 65536, (65536,)).tolist(); st = RosaStream(len(x), 4)
+    t = time.time(); st.extend(x); dt = time.time() - t
+    print(f"RosaStream: 65536 pushes in {dt*1e3:.0f} ms = {dt/len(x)*1e6:.1f} us/token, {st.states} states")
+
+
 def test_speed():
     x = torch.randint(0, 65536, (8, 16384))
     t = time.time(); rosa_tokens(x, K=4); dt = time.time() - t
@@ -76,4 +94,5 @@ if __name__ == "__main__":
     test_tokens_matches_blinkdl_and_brute(); print("tokens OK")
     test_qkv_matches_brute(); print("qkv OK")
     test_chain_and_counts(); print("chain OK")
+    test_stream_matches_batch(); print("stream OK")
     test_speed()

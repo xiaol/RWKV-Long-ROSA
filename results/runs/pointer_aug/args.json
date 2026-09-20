@@ -1,0 +1,23 @@
+{
+ "name": "pointer_aug",
+ "mode": "pointer",
+ "model": "0.4b",
+ "device": "cuda:0",
+ "ctx": 8192,
+ "steps": 1000,
+ "accum": 4,
+ "lr_in": 0.0001,
+ "lr_f": 0.001,
+ "wd": 0.01,
+ "K": 4,
+ "in_layer": 0,
+ "no_h": false,
+ "no_lpc": false,
+ "engram_rows": 65536,
+ "seed": 0,
+ "data": "tok,tok_code",
+ "repeat_aug": 0.5,
+ "eval_every": 200,
+ "eval_books": 3,
+ "eval_t": 16384
+}

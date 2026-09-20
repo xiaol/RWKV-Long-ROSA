@@ -1,0 +1,15 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+    15 Moby-Dick; or, The Whale                 T= 32767 rwkv nll 2.684 top1 0.464 | rosa cover 0.806 acc 0.094 acc|cover 0.117 | rosa 28ms rwkv 2433ms
+    20 Paradise Lost                            T= 32767 rwkv nll 3.074 top1 0.416 | rosa cover 0.840 acc 0.115 acc|cover 0.137 | rosa 24ms rwkv 1696ms
+    35 The Time Machine                         T= 32767 rwkv nll 2.533 top1 0.462 | rosa cover 0.839 acc 0.093 acc|cover 0.111 | rosa 22ms rwkv 1706ms
+    45 Anne of Green Gables                     T= 32767 rwkv nll 2.184 top1 0.504 | rosa cover 0.869 acc 0.126 acc|cover 0.145 | rosa 21ms rwkv 1691ms
+    55 The Wonderful Wizard of Oz               T= 32767 rwkv nll 1.703 top1 0.566 | rosa cover 0.899 acc 0.160 acc|cover 0.178 | rosa 23ms rwkv 1705ms
+   105 Persuasion                               T= 32767 rwkv nll 2.545 top1 0.445 | rosa cover 0.866 acc 0.100 acc|cover 0.115 | rosa 18ms rwkv 1683ms
+   110 Tess of the d'Urbervilles: A Pure Woman  T= 32767 rwkv nll 2.671 top1 0.452 | rosa cover 0.829 acc 0.100 acc|cover 0.120 | rosa 19ms rwkv 1686ms
+   120 Treasure Island                          T= 32767 rwkv nll 2.429 top1 0.470 | rosa cover 0.864 acc 0.119 acc|cover 0.137 | rosa 21ms rwkv 1687ms
+   125 A Girl of the Limberlost                 T= 32767 rwkv nll 2.440 top1 0.465 | rosa cover 0.875 acc 0.133 acc|cover 0.152 | rosa 23ms rwkv 1688ms
+   130 Orthodoxy                                T= 32767 rwkv nll 2.553 top1 0.479 | rosa cover 0.851 acc 0.114 acc|cover 0.134 | rosa 22ms rwkv 1704ms
+   140 The Jungle                               T= 32767 rwkv nll 2.403 top1 0.475 | rosa cover 0.847 acc 0.100 acc|cover 0.118 | rosa 18ms rwkv 1689ms
+   145 Middlemarch                              T= 32767 rwkv nll 2.586 top1 0.464 | rosa cover 0.837 acc 0.124 acc|cover 0.148 | rosa 19ms rwkv 1701ms

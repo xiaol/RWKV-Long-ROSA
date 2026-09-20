@@ -57,9 +57,9 @@ class RosaInputAdapter(nn.Module):
 
 
 class RosaPointerHead(nn.Module):
-    def __init__(self, C: int, K: int = 4, hidden: int = 128, use_h: bool = True, hproj: int = 64):
+    def __init__(self, C: int, K: int = 4, hidden: int = 128, use_h: bool = True, hproj: int = 64, use_lpc: bool = True):
         super().__init__()
-        self.K = K; self.use_h = use_h
+        self.K = K; self.use_h = use_h; self.use_lpc = use_lpc  # use_lpc: feed RWKV's own log-prob of the candidate to the gate
         self.hn = nn.LayerNorm(C) if use_h else None  # backbone hidden has entries up to ~400; normalise first
         self.hp = nn.Linear(C, hproj) if use_h else None
         din = 3 + 1 + 8 + (hproj if use_h else 0)  # feats, logp_rwkv(cand), k-emb, h
@@ -70,7 +70,10 @@ class RosaPointerHead(nn.Module):
 
     def features(self, h, logp_cand, aux):
         f = _cand_feats(aux, self.K)  # [B,T,K,3]
-        parts = [f, logp_cand.unsqueeze(-1).float(), self.k_emb.expand(f.shape[0], f.shape[1], -1, -1)]
+        lpc = logp_cand.unsqueeze(-1).float()
+        if not self.use_lpc:
+            lpc = torch.zeros_like(lpc)
+        parts = [f, lpc, self.k_emb.expand(f.shape[0], f.shape[1], -1, -1)]
         if self.use_h:
             hp = self.hp(self.hn(h.float())).unsqueeze(2).expand(-1, -1, self.K, -1)
             parts.append(hp)

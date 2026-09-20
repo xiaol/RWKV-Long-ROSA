@@ -1,0 +1,95 @@
+{
+ "by_position": {
+  "(0, 1024)": {
+   "base": 1.4503198862075806,
+   "pointer_aug": 1.4513856172561646,
+   "pointer_aug_nolpc": 1.4520816802978516
+  },
+  "(1024, 2048)": {
+   "base": 1.379441261291504,
+   "pointer_aug": 1.3772993087768555,
+   "pointer_aug_nolpc": 1.377780556678772
+  },
+  "(2048, 4096)": {
+   "base": 1.2834988832473755,
+   "pointer_aug": 1.2808629274368286,
+   "pointer_aug_nolpc": 1.2822407484054565
+  },
+  "(4096, 8192)": {
+   "base": 1.1272201538085938,
+   "pointer_aug": 1.1183191537857056,
+   "pointer_aug_nolpc": 1.120704174041748
+  },
+  "(8192, 16384)": {
+   "base": 1.0118919610977173,
+   "pointer_aug": 0.9722686409950256,
+   "pointer_aug_nolpc": 0.9756650924682617
+  },
+  "(16384, 32768)": {
+   "base": 1.0119776725769043,
+   "pointer_aug": 0.9613191485404968,
+   "pointer_aug_nolpc": 0.9652665257453918
+  }
+ },
+ "by_mlen": {
+  "(0, 0)": {
+   "base": 1.7095695734024048,
+   "pointer_aug": 1.7095695734024048,
+   "pointer_aug_nolpc": 1.7095695734024048
+  },
+  "(1, 1)": {
+   "base": 1.7237792015075684,
+   "pointer_aug": 1.7225507497787476,
+   "pointer_aug_nolpc": 1.723106861114502
+  },
+  "(2, 2)": {
+   "base": 1.3405770063400269,
+   "pointer_aug": 1.3343430757522583,
+   "pointer_aug_nolpc": 1.336696982383728
+  },
+  "(3, 3)": {
+   "base": 1.0845152139663696,
+   "pointer_aug": 1.0728048086166382,
+   "pointer_aug_nolpc": 1.0765517950057983
+  },
+  "(4, 5)": {
+   "base": 0.8215981721878052,
+   "pointer_aug": 0.7962648868560791,
+   "pointer_aug_nolpc": 0.8019297122955322
+  },
+  "(6, 8)": {
+   "base": 0.7352503538131714,
+   "pointer_aug": 0.6930803656578064,
+   "pointer_aug_nolpc": 0.6997793316841125
+  },
+  "(9, 16)": {
+   "base": 0.49403801560401917,
+   "pointer_aug": 0.43466445803642273,
+   "pointer_aug_nolpc": 0.44056203961372375
+  },
+  "(17, 1000000000)": {
+   "base": 0.2930790185928345,
+   "pointer_aug": 0.14616720378398895,
+   "pointer_aug_nolpc": 0.1495661437511444
+  }
+ },
+ "overall": {
+  "base": 1.068513035774231,
+  "pointer_aug": 1.031967043876648,
+  "pointer_aug_nolpc": 1.0352107286453247
+ },
+ "books": [
+  "sklearn",
+  "networkx_algorithms",
+  "numpy_lib",
+  "pandas_core",
+  "pip_vendor",
+  "requests",
+  "sympy_core",
+  "torch_distributed",
+  "torch_export",
+  "torch_inductor",
+  "torch_onnx",
+  "transformers_models_l"
+ ]
+}

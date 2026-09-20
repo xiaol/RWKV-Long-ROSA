@@ -156,6 +156,9 @@ class RWKV7(nn.Module):
         pad = (-T) % CHUNK_LEN
         if pad:
             idx = F.pad(idx, (0, pad), value=0)
+            if aux is not None and len(self.adapters):  # keep adapter features aligned with the padded sequence
+                fill = {"pred": -1, "src": -1}
+                aux = {k: (F.pad(v, (0, 0) * (v.dim() - 2) + (0, pad), value=fill.get(k, 0)) if torch.is_tensor(v) and v.dim() >= 2 and v.shape[1] == T else v) for k, v in aux.items()}
         x = self.emb(idx)
         v_first = None
         for i, block in enumerate(self.blocks):

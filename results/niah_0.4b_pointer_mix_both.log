@@ -1,0 +1,21 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+device cuda:3
+Traceback (most recent call last):
+  File "/root/x/RWKV-Long-ROSA/scripts/niah_eval.py", line 116, in <module>
+    acc[r] += adapter_greedy(r, ctx, n_new) == ans
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/x/RWKV-Long-ROSA/scripts/niah_eval.py", line 79, in adapter_greedy
+    logits, h = m(inp.to(args.device), aux=aux, return_hidden=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/x/RWKV-Long-ROSA/scripts/../rosa/rwkv7.py", line 164, in forward
+    x = x + ad(x, aux)
+        ~~^~~~~~~~~~~~
+RuntimeError: The size of tensor a (8224) must match the size of tensor b (8213) at non-singleton dimension 1

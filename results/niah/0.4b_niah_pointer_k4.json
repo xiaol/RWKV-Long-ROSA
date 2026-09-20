@@ -1,0 +1,83 @@
+[
+ {
+  "L": 8192,
+  "depth": 0.1,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.85
+ },
+ {
+  "L": 8192,
+  "depth": 0.5,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.8
+ },
+ {
+  "L": 8192,
+  "depth": 0.9,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 1.0
+ },
+ {
+  "L": 16384,
+  "depth": 0.1,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.05
+ },
+ {
+  "L": 16384,
+  "depth": 0.5,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.05
+ },
+ {
+  "L": 16384,
+  "depth": 0.9,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.7
+ },
+ {
+  "L": 32768,
+  "depth": 0.1,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.0
+ },
+ {
+  "L": 32768,
+  "depth": 0.5,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.0
+ },
+ {
+  "L": 32768,
+  "depth": 0.9,
+  "n": 20,
+  "rwkv": 0.0,
+  "rosa": 0.0,
+  "gated": 0.0,
+  "pointer_k4": 0.25
+ }
+]

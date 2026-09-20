@@ -1,0 +1,14 @@
+60 cases
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+base {512: 'copy 1.107 / around 2.769', 2048: 'copy 2.222 / around 3.026', 8192: 'copy 2.854 / around 2.817', 16384: 'copy 2.952 / around 2.864', 30000: 'copy 3.148 / around 3.092'}
+pointer_k4 {512: 'copy 0.825 / around 2.768', 2048: 'copy 1.496 / around 3.025', 8192: 'copy 1.968 / around 2.815', 16384: 'copy 1.962 / around 2.858', 30000: 'copy 2.031 / around 3.087'}
+
+### NLL on a 256-token passage repeated after `dist` tokens (val books; 'around' = neighbouring un-repeated text)
+   dist                   base             pointer_k4
+    512     1.107 /    2.769     0.825 /    2.768
+   2048     2.222 /    3.026     1.496 /    3.025
+   8192     2.854 /    2.817     1.968 /    2.815
+  16384     2.952 /    2.864     1.962 /    2.858
+  30000     3.148 /    3.092     2.031 /    3.087

@@ -147,6 +147,51 @@ void rosa_qkv_row(const uint8_t* q, const uint8_t* k, const uint8_t* v, int T, i
     }
 }
 
+
+// ----------------------------------------------------------------------------------------------
+// Streaming ROSA for autoregressive decoding: push one token at a time, read K candidates.
+// Memory grows O(n) with the context (automaton states), per-token work is amortised O(1).
+// ----------------------------------------------------------------------------------------------
+struct RosaStream {
+    int cap; int K; HashSAM A; std::vector<int64_t> x, occ; int last = 0; int n = 0;
+    std::vector<int64_t> pred, mlen, src, cnt;  // candidates for the *last pushed* position
+    RosaStream(int64_t capacity, int64_t K_) : cap((int)capacity), K((int)K_), A((int)capacity), occ(2 * capacity + 2, 0) {
+        x.reserve(capacity); pred.assign(K, -1); mlen.assign(K, 0); src.assign(K, -1); cnt.assign(K, 0);
+    }
+    void push(int64_t t) {
+        TORCH_CHECK(n < cap, "RosaStream capacity exceeded");
+        x.push_back(t); int i = n++;
+        int cur = A.new_state(); A.len[cur] = A.len[last] + 1; int p = last;
+        while (p != -1 && A.get(p, t) == -1) { A.set(p, t, cur, true); p = A.link[p]; }
+        if (p == -1) A.link[cur] = 0;
+        else {
+            int q = A.get(p, t);
+            if (A.len[p] + 1 == A.len[q]) A.link[cur] = q;
+            else {
+                int u = A.new_state(); A.len[u] = A.len[p] + 1; A.link[u] = A.link[q]; A.last_end[u] = A.last_end[q]; occ[u] = occ[q];
+                A.keys[u] = A.keys[q];
+                for (int tk : A.keys[q]) A.set(u, tk, A.get(q, tk), false);
+                while (p != -1 && A.get(p, t) == q) { A.set(p, t, u, false); p = A.link[p]; }
+                A.link[q] = A.link[cur] = u;
+            }
+        }
+        last = cur;
+        int v = cur, k = 0;
+        while (v != -1 && k < K) {
+            if (A.len[v] > 0 && A.last_end[v] >= 0) { pred[k] = x[A.last_end[v] + 1]; mlen[k] = A.len[v]; src[k] = A.last_end[v] + 1; cnt[k] = occ[v]; ++k; }
+            v = A.link[v];
+        }
+        for (; k < K; ++k) { pred[k] = -1; mlen[k] = 0; src[k] = -1; cnt[k] = 0; }
+        v = cur; while (v != -1 && A.last_end[v] < i) { A.last_end[v] = i; occ[v] += 1; v = A.link[v]; }
+    }
+    std::vector<torch::Tensor> candidates() const {
+        auto o = torch::dtype(torch::kInt64);
+        return {torch::tensor(pred, o), torch::tensor(mlen, o), torch::tensor(src, o), torch::tensor(cnt, o)};
+    }
+    int64_t size() const { return n; }
+    int64_t states() const { return A.n_states; }
+};
+
 } // namespace
 
 std::vector<torch::Tensor> rosa_tokens(torch::Tensor x, int64_t K) {
@@ -180,6 +225,12 @@ std::vector<torch::Tensor> rosa_qkv(torch::Tensor q, torch::Tensor k, torch::Ten
 }
 
 PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
+    py::class_<RosaStream>(m, "RosaStream")
+        .def(py::init<int64_t, int64_t>(), py::arg("capacity"), py::arg("K") = 4)
+        .def("push", &RosaStream::push)
+        .def("candidates", &RosaStream::candidates)
+        .def("size", &RosaStream::size)
+        .def("states", &RosaStream::states);
     m.def("rosa_tokens", &rosa_tokens, "ROSA over token ids with K-chain: (pred, mlen, src, cnt) each [B,T,K]");
     m.def("rosa_qkv", &rosa_qkv, "ROSA-QKV over small-alphabet symbol rows: (out, mlen, src)");
 }

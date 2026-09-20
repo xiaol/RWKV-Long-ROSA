@@ -1,0 +1,22 @@
+{
+ "name": "both_k4_l2",
+ "mode": "both",
+ "model": "0.4b",
+ "device": "cuda:3",
+ "ctx": 8192,
+ "steps": 1000,
+ "accum": 4,
+ "lr_in": 0.0001,
+ "lr_f": 0.001,
+ "wd": 0.01,
+ "K": 4,
+ "in_layer": 2,
+ "no_h": false,
+ "engram_rows": 65536,
+ "seed": 0,
+ "data": "tok",
+ "repeat_aug": 0.0,
+ "eval_every": 200,
+ "eval_books": 3,
+ "eval_t": 16384
+}

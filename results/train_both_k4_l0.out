@@ -18,3 +18,37 @@ step   100 loss 3.0060 ema 2.9667 base 3.0104 gain +0.0045 lr 9.78e-04 7.01s/ste
 step   110 loss 3.1456 ema 2.9882 base 3.1586 gain +0.0130 lr 9.73e-04 7.01s/step
 step   120 loss 2.9977 ema 3.0081 base 3.0028 gain +0.0051 lr 9.68e-04 7.02s/step
 step   130 loss 2.9154 ema 3.0235 base 2.9199 gain +0.0045 lr 9.63e-04 7.20s/step
+step   140 loss 3.1915 ema 3.0632 base 3.2007 gain +0.0092 lr 9.57e-04 7.49s/step
+step   150 loss 3.3351 ema 3.0715 base 3.3454 gain +0.0103 lr 9.51e-04 7.77s/step
+step   160 loss 3.4871 ema 3.0834 base 3.4999 gain +0.0129 lr 9.44e-04 8.00s/step
+step   170 loss 3.0514 ema 3.0859 base 3.0596 gain +0.0082 lr 9.37e-04 7.86s/step
+step   180 loss 3.2898 ema 3.0865 base 3.2979 gain +0.0081 lr 9.30e-04 7.73s/step
+step   190 loss 3.2112 ema 3.0850 base 3.2199 gain +0.0088 lr 9.22e-04 7.61s/step
+step   200 loss 2.8746 ema 3.0850 base 2.8839 gain +0.0094 lr 9.14e-04 7.50s/step
+EVAL step 200: val nll 3.1660 | [0-2048] 3.0323 (base 3.0373) [2048-8192] 3.1009 (base 3.1135) [8192-16384] 3.2482 (base 3.2757)
+step   210 loss 3.0805 ema 3.0742 base 3.0899 gain +0.0094 lr 9.06e-04 7.41s/step
+step   220 loss 3.2594 ema 3.0786 base 3.2776 gain +0.0182 lr 8.97e-04 7.32s/step
+step   230 loss 3.0810 ema 3.0675 base 3.0876 gain +0.0067 lr 8.88e-04 7.24s/step
+step   240 loss 3.2522 ema 3.0673 base 3.2698 gain +0.0176 lr 8.78e-04 7.17s/step
+step   250 loss 2.8814 ema 3.0701 base 2.8903 gain +0.0089 lr 8.68e-04 7.10s/step
+step   260 loss 3.0647 ema 3.0767 base 3.0731 gain +0.0084 lr 8.58e-04 7.04s/step
+step   270 loss 3.2797 ema 3.0772 base 3.2959 gain +0.0162 lr 8.48e-04 6.98s/step
+step   280 loss 3.1691 ema 3.0755 base 3.1851 gain +0.0160 lr 8.37e-04 6.92s/step
+step   290 loss 3.4262 ema 3.0900 base 3.4353 gain +0.0090 lr 8.26e-04 6.89s/step
+step   300 loss 3.1131 ema 3.1017 base 3.1277 gain +0.0146 lr 8.15e-04 6.92s/step
+step   310 loss 3.0573 ema 3.0946 base 3.0786 gain +0.0213 lr 8.03e-04 6.87s/step
+step   320 loss 3.0380 ema 3.0837 base 3.0520 gain +0.0140 lr 7.91e-04 6.83s/step
+step   330 loss 2.9281 ema 3.0788 base 2.9360 gain +0.0079 lr 7.79e-04 6.78s/step
+step   340 loss 2.8932 ema 3.0505 base 2.9000 gain +0.0068 lr 7.67e-04 6.74s/step
+step   350 loss 3.0321 ema 3.0355 base 3.0370 gain +0.0049 lr 7.54e-04 6.71s/step
+step   360 loss 3.0332 ema 3.0447 base 3.0426 gain +0.0094 lr 7.42e-04 6.67s/step
+step   370 loss 2.8008 ema 3.0407 base 2.8074 gain +0.0065 lr 7.29e-04 6.64s/step
+step   380 loss 2.9169 ema 3.0410 base 2.9208 gain +0.0039 lr 7.16e-04 6.61s/step
+step   390 loss 2.9211 ema 3.0355 base 2.9278 gain +0.0067 lr 7.02e-04 6.58s/step
+step   400 loss 2.9642 ema 3.0231 base 2.9720 gain +0.0078 lr 6.89e-04 6.55s/step
+EVAL step 400: val nll 3.0845 | [0-2048] 2.9728 (base 2.9796) [2048-8192] 3.0296 (base 3.0401) [8192-16384] 3.1536 (base 3.1745)
+step   410 loss 2.9722 ema 3.0262 base 2.9812 gain +0.0091 lr 6.76e-04 6.53s/step
+step   420 loss 2.8366 ema 3.0241 base 2.8432 gain +0.0066 lr 6.62e-04 6.50s/step
+step   430 loss 2.8513 ema 3.0030 base 2.8546 gain +0.0034 lr 6.48e-04 6.48s/step
+step   440 loss 3.0296 ema 3.0141 base 3.0368 gain +0.0072 lr 6.34e-04 6.45s/step
+step   450 loss 4.0344 ema 3.0382 base 4.0521 gain +0.0178 lr 6.20e-04 6.43s/step

@@ -1,0 +1,61 @@
+/root/anaconda3/envs/rwkv_py312/lib/python3.12/site-packages/torch/utils/cpp_extension.py:2059: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+baseline sklearn T=32768 nll 0.9543
+baseline networkx_algorithms T=32768 nll 1.1592
+baseline numpy_lib T=32768 nll 1.3407
+baseline pandas_core T=32768 nll 1.1557
+baseline pip_vendor T=32768 nll 0.6635
+baseline requests T=32768 nll 1.2363
+baseline sympy_core T=32768 nll 1.1443
+baseline torch_distributed T=32768 nll 1.1714
+baseline torch_export T=32768 nll 1.3400
+baseline torch_inductor T=32768 nll 0.5442
+baseline torch_onnx T=32768 nll 1.1517
+baseline transformers_models_l T=32768 nll 0.9608
+pointer_aug sklearn nll 0.9195 (base 0.9543) mean gate 0.188
+pointer_aug networkx_algorithms nll 1.1339 (base 1.1592) mean gate 0.094
+pointer_aug numpy_lib nll 1.3247 (base 1.3407) mean gate 0.077
+pointer_aug pandas_core nll 1.1282 (base 1.1557) mean gate 0.137
+pointer_aug pip_vendor nll 0.6677 (base 0.6635) mean gate 0.061
+pointer_aug requests nll 1.2168 (base 1.2363) mean gate 0.097
+pointer_aug sympy_core nll 1.1368 (base 1.1443) mean gate 0.090
+pointer_aug torch_distributed nll 1.1512 (base 1.1714) mean gate 0.190
+pointer_aug torch_export nll 1.2871 (base 1.3400) mean gate 0.135
+pointer_aug torch_inductor nll 0.5349 (base 0.5442) mean gate 0.366
+pointer_aug torch_onnx nll 1.1185 (base 1.1517) mean gate 0.127
+pointer_aug transformers_models_l nll 0.7643 (base 0.9608) mean gate 0.301
+pointer_aug_nolpc sklearn nll 0.9228 (base 0.9543) mean gate 0.126
+pointer_aug_nolpc networkx_algorithms nll 1.1370 (base 1.1592) mean gate 0.052
+pointer_aug_nolpc numpy_lib nll 1.3278 (base 1.3407) mean gate 0.043
+pointer_aug_nolpc pandas_core nll 1.1325 (base 1.1557) mean gate 0.080
+pointer_aug_nolpc pip_vendor nll 0.6678 (base 0.6635) mean gate 0.017
+pointer_aug_nolpc requests nll 1.2198 (base 1.2363) mean gate 0.055
+pointer_aug_nolpc sympy_core nll 1.1391 (base 1.1443) mean gate 0.038
+pointer_aug_nolpc torch_distributed nll 1.1549 (base 1.1714) mean gate 0.133
+pointer_aug_nolpc torch_export nll 1.2925 (base 1.3400) mean gate 0.089
+pointer_aug_nolpc torch_inductor nll 0.5357 (base 0.5442) mean gate 0.266
+pointer_aug_nolpc torch_onnx nll 1.1235 (base 1.1517) mean gate 0.074
+pointer_aug_nolpc transformers_models_l nll 0.7691 (base 0.9608) mean gate 0.244
+
+### NLL by position (val books=12, max_t=32768)
+        bucket      ntok           base    pointer_aug pointer_aug_nolpc
+     (0, 1024)     12288   1.4503(+0.000)   1.4514(+0.001)   1.4521(+0.002)
+  (1024, 2048)     12288   1.3794(+0.000)   1.3773(-0.002)   1.3778(-0.002)
+  (2048, 4096)     24576   1.2835(+0.000)   1.2809(-0.003)   1.2822(-0.001)
+  (4096, 8192)     49152   1.1272(+0.000)   1.1183(-0.009)   1.1207(-0.007)
+ (8192, 16384)     98304   1.0119(+0.000)   0.9723(-0.040)   0.9757(-0.036)
+(16384, 32768)    196608   1.0120(+0.000)   0.9613(-0.051)   0.9653(-0.047)
+
+### NLL by ROSA match length (val books=12, max_t=32768)
+        bucket      ntok           base    pointer_aug pointer_aug_nolpc
+        (0, 0)     26695   1.7096(+0.000)   1.7096(+0.000)   1.7096(+0.000)
+        (1, 1)     81990   1.7238(+0.000)   1.7226(-0.001)   1.7231(-0.001)
+        (2, 2)     64819   1.3406(+0.000)   1.3343(-0.006)   1.3367(-0.004)
+        (3, 3)     42088   1.0845(+0.000)   1.0728(-0.012)   1.0766(-0.008)
+        (4, 5)     48516   0.8216(+0.000)   0.7963(-0.025)   0.8019(-0.020)
+        (6, 8)     36102   0.7353(+0.000)   0.6931(-0.042)   0.6998(-0.035)
+       (9, 16)     34754   0.4940(+0.000)   0.4347(-0.059)   0.4406(-0.053)
+(17, 1000000000)     58252   0.2931(+0.000)   0.1462(-0.147)   0.1496(-0.144)
+
+overall: {'base': '1.0685 (ppl 2.91)', 'pointer_aug': '1.0320 (ppl 2.81)', 'pointer_aug_nolpc': '1.0352 (ppl 2.82)'}

@@ -70,3 +70,28 @@ def symbols_to_bits(sym: torch.Tensor, nbits: int, B: int, T: int) -> torch.Tens
     shifts = torch.arange(nbits, device=sym.device, dtype=torch.int32)
     bits = (s.unsqueeze(-1) >> shifts) & 1  # [B,T,G,nbits]
     return bits.reshape(B, T, G * nbits)
+
+
+class RosaStream:
+    """Incremental ROSA for decoding.  ``push(token)`` returns (pred, mlen, src, cnt) int64 [K] for the
+    suffix ending at the pushed token; amortised O(1) per token, memory O(context)."""
+
+    def __init__(self, capacity: int, K: int = 4):
+        self._s = _load().RosaStream(int(capacity), int(K)); self.K = K
+
+    def push(self, token: int):
+        self._s.push(int(token))
+        return self._s.candidates()
+
+    def extend(self, tokens):
+        out = None
+        for t in tokens:
+            out = self.push(t)
+        return out
+
+    def __len__(self):
+        return self._s.size()
+
+    @property
+    def states(self):
+        return self._s.states()

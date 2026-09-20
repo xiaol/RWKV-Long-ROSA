@@ -34,7 +34,7 @@ def build(run):
     model.adapters.load_state_dict(ck["adapters"])
     head = None
     if ck["head"] is not None:
-        head = RosaPointerHead(C, K=a["K"], use_h=not a["no_h"]).to(dev); head.load_state_dict(ck["head"]); head.eval()
+        head = RosaPointerHead(C, K=a["K"], use_h=not a["no_h"], use_lpc=not a.get("no_lpc", False)).to(dev); head.load_state_dict(ck["head"]); head.eval()
     return model, head, a
 
 @torch.no_grad()
