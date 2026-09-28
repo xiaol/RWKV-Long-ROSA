@@ -10,6 +10,9 @@ The [matched scene-control experiment](SCENE_CONTROLS.md) compares a separately
 trained head-only baseline, local adaptation, semantic memory, and original
 ROSA input adaptation across two seeds. Semantic one-hop and local adaptation
 perform similarly; additional hops have not established an improvement.
+The [supervised state-tuning comparison](STATE_TUNING.md) adds learned initial
+RWKV states, alone and with semantic memory; neither improves the matched
+test result at the evaluated training budget.
 
 ## Mechanism
 
@@ -123,6 +126,8 @@ The scene runner supports the following independently trained controls:
 |---|---|
 | `--adapter-kind none` | Scene head only on frozen RWKV features |
 | `--adapter-kind local` | Per-token residual MLP and scene head |
+| `--adapter-kind state` | Learned initial RWKV recurrent state and scene head |
+| `--adapter-kind state_semantic --hops 1` | Initial recurrent state, one-hop memory, and scene head |
 | `--adapter-kind semantic --hops 1` | One-hop memory and scene head |
 | `--adapter-kind semantic --hops 2` | Two-hop memory and scene head |
 | `--adapter-kind rosa` | Original suffix-based input adapter and scene head |
@@ -134,6 +139,30 @@ semantic memory on RWKV-0.4B. The ROSA input control has about 1.05M parameters;
 it is not parameter matched. It uses the original ROSA candidate embedding
 adapter, not the vocabulary pointer-generator, whose outputs are token
 probabilities rather than paragraph boundary scores.
+
+State tuning uses the RWKV recurrence's actual initial state, with one learned
+matrix per layer and attention head. The backbone weights remain frozen; the
+CUDA recurrence receives the learned state and returns gradients to it. A zero
+state is exactly the original model. Gradients are checked against a PyTorch
+reference recurrence; the runner uses ordinary global gradient clipping. This is a
+global state shared across examples, not a separate state inferred from each
+prompt; compare it against a separately trained head-only control.
+
+Only the attention matrix states are learned; time-mix and channel-mix previous
+token vectors start at zero. RWKV-0.4B uses 24 layers, 16 heads, and a 64 by 64
+matrix per head: 1,572,864 state parameters, plus the common 133,377-parameter
+classifier. `state_semantic` adds the semantic memory parameters as well.
+Every example starts from the same learned state; processing never mutates it
+or carries the final state between examples. The state is stored in FP32 with
+axes `[layer, head, value, key]` and saved with its dimensions in the checkpoint.
+
+Use `--adapter-kind state` for state-only adaptation and
+`--adapter-kind state_semantic --hops 1` for joint state and memory training.
+Both use supervised weighted binary cross-entropy and keep all RWKV weights
+frozen. In state-plus-memory reports, `memory_disabled` retains the learned
+state, and `state_disabled` retains the learned memory. These are interventions
+on a jointly trained model, not independently trained controls. Select cutoffs
+on development reports using the same evaluator as the other methods.
 
 `memory_disabled` is an inference intervention on a jointly trained model.
 Its head was trained with the adapter enabled, so it is not a separately

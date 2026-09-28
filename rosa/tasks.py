@@ -34,3 +34,23 @@ class LocalResidualAdapter(nn.Module):
         if aux is not None and aux.get("disable_adapter", False):
             return torch.zeros_like(hidden)
         return self.net(hidden.float()).to(hidden.dtype)
+
+
+class InitialStateTuner(nn.Module):
+    """Learn one RWKV recurrent state per layer, shared across examples."""
+
+    def __init__(self, layers: int, heads: int, head_size: int = 64):
+        super().__init__()
+        if min(layers, heads, head_size) < 1:
+            raise ValueError("State dimensions must be positive")
+        self.config = dict(layers=layers, heads=heads, head_size=head_size)
+        self.state = nn.Parameter(torch.zeros(layers, heads, head_size, head_size))
+
+    def initial_states(self, batch: int, device=None):
+        if batch < 1:
+            raise ValueError("Batch size must be positive")
+        state = self.state if device is None else self.state.to(device)
+        return state.unsqueeze(0).expand(batch, -1, -1, -1, -1).unbind(1)
+
+    def forward(self, batch: int, device=None):
+        return self.initial_states(batch, device)

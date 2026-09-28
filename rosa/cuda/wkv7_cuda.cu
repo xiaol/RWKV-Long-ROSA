@@ -7,11 +7,17 @@ __device__ inline bf to_bf(const float & u) { return __float2bfloat16_rn(u); }
 
 typedef bf * __restrict__ F_;
 
-__global__ void forward_kernel(int T, int H, F_ w_, F_ q_, F_ k_, F_ v_, F_ a_, F_ b_, bf* y_, float* s_, float* sa_) {
+__global__ void forward_kernel(int T, int H, F_ w_, F_ q_, F_ k_, F_ v_, F_ a_, F_ b_, bf* y_, float* s_, float* sa_, const float* initial_ = nullptr) {
     constexpr int C = _C_;
     int bb = blockIdx.y, hh = blockIdx.x, i = threadIdx.x;
 
     float state[C] = {0};
+    if (initial_ != nullptr) {
+#pragma unroll
+        for (int column = 0; column < C; column++) {
+            state[column] = initial_[(bb*H+hh)*C*C + i*C + column];
+        }
+    }
     __shared__ float q[C], k[C], w[C], a[C], b[C];
 
     for (int t = 0; t < T; t++) {
@@ -51,7 +57,7 @@ __global__ void forward_kernel(int T, int H, F_ w_, F_ q_, F_ k_, F_ v_, F_ a_, 
     }
 }
 
-__global__ void backward_kernel(int T, int H, F_ w_, F_ q_, F_ k_, F_ v_, F_ a_, F_ b_, F_ dy_, float * __restrict__ s_, float * __restrict__ sa_, bf* dw_, bf* dq_, bf* dk_, bf* dv_, bf* da_, bf* db_) {
+__global__ void backward_kernel(int T, int H, F_ w_, F_ q_, F_ k_, F_ v_, F_ a_, F_ b_, F_ dy_, float * __restrict__ s_, float * __restrict__ sa_, bf* dw_, bf* dq_, bf* dk_, bf* dv_, bf* da_, bf* db_, float* initial_gradient = nullptr) {
     constexpr int C = _C_;
     int bb = blockIdx.y, hh = blockIdx.x, i = threadIdx.x;
 
@@ -127,6 +133,12 @@ __global__ void backward_kernel(int T, int H, F_ w_, F_ q_, F_ k_, F_ v_, F_ a_,
             dstateT[j] = dstateT[j]*wi + ai * dSb_shared[j];
         }
     }
+    if (initial_gradient != nullptr) {
+#pragma unroll
+        for (int column = 0; column < C; column++) {
+            initial_gradient[(bb*H+hh)*C*C + i*C + column] = dstate[column];
+        }
+    }
 }
 
 void cuda_forward(int B, int T, int H, bf*w, bf*q, bf*k, bf*v, bf*z, bf*a, bf*y, float*s, float*sa) {
@@ -135,4 +147,20 @@ void cuda_forward(int B, int T, int H, bf*w, bf*q, bf*k, bf*v, bf*z, bf*a, bf*y,
 void cuda_backward(int B, int T, int H, bf*w, bf*q, bf*k, bf*v, bf*z, bf*a, bf*dy, float*s, float*sa, bf*dw, bf*dq, bf*dk, bf*dv, bf*dz, bf*da) {
     assert(T%_CHUNK_LEN_ == 0);
     backward_kernel<<<dim3(H,B), dim3(_C_)>>>(T,H,w,q,k,v,z,a,dy,s,sa,dw,dq,dk,dv,dz,da);
+}
+
+void cuda_forward_state(int batch, int length, int heads, bf* decay, bf* query, bf* key, bf* value,
+        bf* erase, bf* write, float* initial, bf* output, float* states, float* projections) {
+    forward_kernel<<<dim3(heads,batch), dim3(_C_)>>>(
+        length,heads,decay,query,key,value,erase,write,output,states,projections,initial);
+}
+
+void cuda_backward_state(int batch, int length, int heads, bf* decay, bf* query, bf* key, bf* value,
+        bf* erase, bf* write, bf* output_gradient, float* states, float* projections,
+        bf* decay_gradient, bf* query_gradient, bf* key_gradient, bf* value_gradient,
+        bf* erase_gradient, bf* write_gradient, float* initial_gradient) {
+    assert(length%_CHUNK_LEN_ == 0);
+    backward_kernel<<<dim3(heads,batch), dim3(_C_)>>>(
+        length,heads,decay,query,key,value,erase,write,output_gradient,states,projections,
+        decay_gradient,query_gradient,key_gradient,value_gradient,erase_gradient,write_gradient,initial_gradient);
 }

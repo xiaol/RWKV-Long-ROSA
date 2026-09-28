@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from rosa.semantic import SemanticMemoryAdapter
 from rosa.sft import (answer_loss, boundary_metrics, load_examples, load_scene_examples,
                       make_batch, score_predictions)
-from rosa.tasks import LocalResidualAdapter, SceneBoundaryHead
+from rosa.tasks import InitialStateTuner, LocalResidualAdapter, SceneBoundaryHead
 
 
 def active_adapter(**kwargs):
@@ -194,7 +194,7 @@ def test_local_residual_adapter_is_zero_initialized_and_disableable():
     assert torch.count_nonzero(adapter(hidden, {"disable_adapter": True})) == 0
 
 
-@pytest.mark.parametrize("kind", ["none", "local", "rosa", "semantic"])
+@pytest.mark.parametrize("kind", ["none", "local", "rosa", "semantic", "state", "state_semantic"])
 def test_scene_evaluation_controls_and_probability_threshold(monkeypatch, kind):
     from scripts import train_scene_head as runner
 
@@ -204,22 +204,27 @@ def test_scene_evaluation_controls_and_probability_threshold(monkeypatch, kind):
     calls = []
 
     def fake_forward(model, head, example, device, disable_memory, disable_adapter,
-                     rosa_features):
-        calls.append((disable_memory, disable_adapter))
+                     disable_state, rosa_features):
+        calls.append((disable_memory, disable_adapter, disable_state))
         return logits, labels
 
     monkeypatch.setattr(runner, "forward", fake_forward)
-    adapter = SemanticMemoryAdapter(8, hops=2) if kind == "semantic" else None
+    adapter = SemanticMemoryAdapter(8, hops=2) if kind in ("semantic", "state_semantic") else None
     head = SceneBoundaryHead(8)
     report = runner.evaluate(nn.Identity(), adapter, head, examples, "cpu", 0.5, (0.6,), kind)
     expected_keys = {"none": {"head_only"},
                      "local": {"memory_disabled", "local_adapter"},
                      "rosa": {"memory_disabled", "rosa_adapter"},
-                     "semantic": {"memory_disabled", "one_hop", "multi_hop"}}
+                     "semantic": {"memory_disabled", "one_hop", "multi_hop"},
+                     "state": {"state_disabled", "state_tuned"},
+                     "state_semantic": {"memory_disabled", "one_hop", "multi_hop", "state_disabled"}}
     assert report.keys() == expected_keys[kind]
     assert all(metrics["f1"] == 1 for metrics in report.values())
     assert all(metrics["threshold_sweep"][0]["predicted"] == 0 for metrics in report.values())
-    assert calls[0] == ((False, False) if kind == "none" else (True, True))
+    assert calls[0] == ({"none": (False, False, False), "state": (False, False, True)}.get(
+        kind, (True, True, False)))
+    if kind == "state_semantic":
+        assert calls[-1] == (False, False, True)
     assert not head.training
     if adapter is not None:
         assert adapter.hops == 2
@@ -246,3 +251,21 @@ def test_development_cutoff_selection_has_stable_ties():
     assert select_threshold(metrics)["threshold"] == 0.6
     with pytest.raises(ValueError, match="development report"):
         select_threshold({})
+
+
+def test_initial_state_tuner_expands_shared_zero_state_and_trains():
+    tuner = InitialStateTuner(layers=3, heads=2, head_size=4)
+    states = tuner.initial_states(5)
+    assert len(states) == 3
+    assert states[0].shape == (5, 2, 4, 4)
+    assert torch.equal(states[0], torch.zeros_like(states[0]))
+    loss = sum(state.sum() for state in states)
+    loss.backward()
+    assert tuner.state.grad is not None
+    assert tuner.state.grad.shape == (3, 2, 4, 4)
+    torch.testing.assert_close(tuner.state.grad, torch.full_like(tuner.state, 5))
+    with torch.no_grad():
+        tuner.state[0].fill_(1)
+    restored = InitialStateTuner(**tuner.config)
+    restored.load_state_dict(tuner.state_dict())
+    torch.testing.assert_close(restored.initial_states(2)[0], torch.ones(2, 2, 4, 4))

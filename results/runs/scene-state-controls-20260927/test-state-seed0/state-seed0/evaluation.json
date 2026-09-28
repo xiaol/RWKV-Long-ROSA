@@ -1,0 +1,30 @@
+{
+  "state_disabled": {
+    "rows": 149,
+    "true_positive": 46,
+    "predicted": 268,
+    "gold": 155,
+    "precision": 0.17164179104477612,
+    "recall": 0.2967741935483871,
+    "f1": 0.21749408983451538,
+    "exact_match": 0.14093959731543623,
+    "binary_nll": 0.5445987166259568,
+    "labels": 1994,
+    "threshold": 0.5,
+    "threshold_sweep": []
+  },
+  "state_tuned": {
+    "rows": 149,
+    "true_positive": 52,
+    "predicted": 347,
+    "gold": 155,
+    "precision": 0.14985590778097982,
+    "recall": 0.33548387096774196,
+    "f1": 0.20717131474103587,
+    "exact_match": 0.053691275167785234,
+    "binary_nll": 0.5116070158772148,
+    "labels": 1994,
+    "threshold": 0.5,
+    "threshold_sweep": []
+  }
+}

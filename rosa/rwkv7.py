@@ -55,11 +55,50 @@ class WindBackstepping(torch.autograd.Function):
         return dw, dq, dk, dv, dz, db
 
 
-def RWKV7_OP(r, w, k, v, a, b):
+class WindBacksteppingState(torch.autograd.Function):
+    @staticmethod
+    def forward(ctx, decay, query, key, value, erase, write, initial):
+        batch, length, heads, width = decay.shape
+        inputs = (decay, query, key, value, erase, write)
+        assert length % CHUNK_LEN == 0
+        assert initial.shape == (batch, heads, width, width) and initial.dtype == torch.float32
+        assert all(tensor.dtype == torch.bfloat16 for tensor in inputs)
+        assert all(tensor.is_contiguous() for tensor in (*inputs, initial))
+        output = torch.empty_like(value)
+        states = torch.empty(batch, heads, length // CHUNK_LEN, width, width,
+                             dtype=torch.float32, device=decay.device)
+        projections = torch.empty_like(decay, dtype=torch.float32)
+        torch.ops.wind_backstepping.forward_state(*inputs, initial, output, states, projections)
+        if any(tensor.requires_grad for tensor in (*inputs, initial)):
+            ctx.save_for_backward(*inputs, states, projections)
+        return output
+
+    @staticmethod
+    def backward(ctx, output_gradient):
+        assert output_gradient.dtype == torch.bfloat16
+        *inputs, states, projections = ctx.saved_tensors
+        gradients = [torch.empty_like(tensor) for tensor in inputs]
+        batch, _, heads, width = inputs[0].shape
+        initial_gradient = torch.empty(batch, heads, width, width,
+                                       dtype=torch.float32, device=inputs[0].device)
+        with torch.cuda.device(inputs[0].device):
+            torch.ops.wind_backstepping.backward_state(
+                *inputs, output_gradient.contiguous(), states, projections, *gradients, initial_gradient)
+        return (*gradients, initial_gradient)
+
+
+def RWKV7_OP(r, w, k, v, a, b, initial_state=None):
     B, T, HC = r.shape
     r, w, k, v, a, b = [i.view(B, T, HC // HEAD_SIZE, HEAD_SIZE).contiguous() for i in [r, w, k, v, a, b]]
+    if initial_state is not None:
+        if (initial_state.shape != (B, HC // HEAD_SIZE, HEAD_SIZE, HEAD_SIZE)
+                or initial_state.dtype != torch.float32 or initial_state.device != r.device):
+            raise ValueError("Initial state must be float32 [batch, heads, value, key] on the input device")
+        initial_state = initial_state.contiguous()
     with torch.cuda.device(r.device):  # TORCH_LIBRARY op launches on the *current* device
-        return WindBackstepping.apply(w, r, k, v, a, b).view(B, T, HC)
+        output = (WindBacksteppingState.apply(w, r, k, v, a, b, initial_state)
+                  if initial_state is not None else WindBackstepping.apply(w, r, k, v, a, b))
+        return output.view(B, T, HC)
 
 
 class TimeMix(nn.Module):
@@ -78,7 +117,7 @@ class TimeMix(nn.Module):
         self.value = nn.Linear(C, C, bias=False); self.output = nn.Linear(C, C, bias=False)
         self.ln_x = nn.GroupNorm(H, C, eps=64e-5)
 
-    def forward(self, x, v_first):
+    def forward(self, x, v_first, initial_state=None):
         B, T, C = x.size(); H = self.n_head
         xx = F.pad(x, (0, 0, 1, -1)) - x
         xr = x + xx * self.x_r; xw = x + xx * self.x_w; xk = x + xx * self.x_k
@@ -95,7 +134,7 @@ class TimeMix(nn.Module):
         kk = k * self.k_k
         kk = F.normalize(kk.view(B, T, H, -1), dim=-1, p=2.0).view(B, T, C)
         k = k * (1 + (a - 1) * self.k_a)
-        x = RWKV7_OP(r, w, k, v, -kk, kk * a)
+        x = RWKV7_OP(r, w, k, v, -kk, kk * a, initial_state)
         x = self.ln_x(x.view(B * T, C)).view(B, T, C)
         x = x + ((r.view(B, T, H, -1) * k.view(B, T, H, -1) * self.r_k).sum(dim=-1, keepdim=True) * v.view(B, T, H, -1)).view(B, T, C)
         return self.output(x * g), v_first
@@ -123,10 +162,10 @@ class Block(nn.Module):
         self.ln1 = nn.LayerNorm(args.n_embd); self.ln2 = nn.LayerNorm(args.n_embd)
         self.att = TimeMix(args, layer_id); self.ffn = ChannelMix(args, layer_id)
 
-    def forward(self, x, v_first):
+    def forward(self, x, v_first, initial_state=None):
         if self.layer_id == 0:
             x = self.ln0(x)
-        xx, v_first = self.att(self.ln1(x), v_first)
+        xx, v_first = self.att(self.ln1(x), v_first, initial_state)
         x = x + xx
         x = x + self.ffn(self.ln2(x))
         return x, v_first
@@ -147,9 +186,16 @@ class RWKV7(nn.Module):
         self.head = nn.Linear(n_embd, vocab_size, bias=False)
         self.adapters = nn.ModuleDict()
         self.grad_ckpt = False
+        self.state_adapter = None
 
     def add_adapter(self, layer: int, module: nn.Module):
         self.adapters[str(layer)] = module
+
+    def add_state_adapter(self, module: nn.Module):
+        expected = dict(layers=self.args.n_layer, heads=self.args.n_embd // HEAD_SIZE, head_size=HEAD_SIZE)
+        if module.config != expected:
+            raise ValueError("Initial state dimensions do not match the RWKV backbone")
+        self.state_adapter = module
 
     def forward(self, idx, aux=None, return_hidden=False, last_only=False):
         B, T = idx.shape
@@ -161,14 +207,18 @@ class RWKV7(nn.Module):
                 aux = {k: (F.pad(v, (0, 0) * (v.dim() - 2) + (0, pad), value=fill.get(k, 0)) if torch.is_tensor(v) and v.dim() >= 2 and v.shape[1] == T else v) for k, v in aux.items()}
         x = self.emb(idx)
         v_first = None
+        initial_states = None
+        if self.state_adapter is not None and not (aux is not None and aux.get("disable_state", False)):
+            initial_states = self.state_adapter.initial_states(B, device=x.device)
         for i, block in enumerate(self.blocks):
             ad = self.adapters[str(i)] if str(i) in self.adapters else None
             if ad is not None:
                 x = x + ad(x, aux)
+            state = None if initial_states is None else initial_states[i]
             if self.grad_ckpt and torch.is_grad_enabled():
-                x, v_first = torch.utils.checkpoint.checkpoint(block, x, v_first, use_reentrant=False)
+                x, v_first = torch.utils.checkpoint.checkpoint(block, x, v_first, state, use_reentrant=False)
             else:
-                x, v_first = block(x, v_first)
+                x, v_first = block(x, v_first, state)
         x = self.ln_out(x)
         if pad:
             x = x[:, :T]

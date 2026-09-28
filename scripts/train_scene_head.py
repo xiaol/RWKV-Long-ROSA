@@ -17,7 +17,7 @@ from rosa.rwkv7 import MODELS, VOCAB, load_rwkv7
 from rosa.adapters import RosaFeatures, RosaInputAdapter
 from rosa.semantic import SemanticMemoryAdapter
 from rosa.sft import boundary_metrics, load_scene_examples
-from rosa.tasks import LocalResidualAdapter, SceneBoundaryHead
+from rosa.tasks import InitialStateTuner, LocalResidualAdapter, SceneBoundaryHead
 
 
 class SceneRosaInputAdapter(RosaInputAdapter):
@@ -41,23 +41,25 @@ def check_disjoint(training, validation):
         raise ValueError("Train and validation contain an overlapping user prompt")
 
 
-def batch(example, device, disable_memory=False, disable_adapter=False, rosa_features=None):
+def batch(example, device, disable_memory=False, disable_adapter=False, disable_state=False,
+          rosa_features=None):
     inputs = torch.tensor([example["prompt_ids"]], device=device)
     memory_mask = torch.ones_like(inputs, dtype=torch.bool)
     if disable_memory:
         memory_mask.zero_()
     positions = torch.tensor([example["paragraph_positions"]], device=device, dtype=torch.long)
     labels = torch.tensor([example["boundary_labels"]], device=device, dtype=torch.float32)
-    aux = {"memory_mask": memory_mask, "disable_adapter": disable_adapter}
+    aux = {"memory_mask": memory_mask, "disable_adapter": disable_adapter,
+           "disable_state": disable_state}
     if rosa_features is not None:
         aux.update(rosa_features(inputs))
     return inputs, positions, labels, aux
 
 
 def forward(model, head, example, device, disable_memory=False, disable_adapter=False,
-            rosa_features=None):
+            disable_state=False, rosa_features=None):
     inputs, positions, labels, aux = batch(example, device, disable_memory, disable_adapter,
-                                           rosa_features)
+                                           disable_state, rosa_features)
     _, hidden = model(inputs, aux=aux, return_hidden=True)
     return head(hidden, positions), labels
 
@@ -68,22 +70,29 @@ def evaluate(model, adapter, head, examples, device, threshold, thresholds, adap
     model.eval()
     head.eval()
     report = {}
-    original_hops = adapter.hops if adapter_kind == "semantic" else None
+    semantic = adapter_kind in ("semantic", "state_semantic")
+    original_hops = adapter.hops if semantic else None
     try:
         variants = (("memory_disabled", True, True), ("one_hop", False, False),
-                    ("multi_hop", False, False)) if adapter_kind == "semantic" else (
+                    ("multi_hop", False, False)) if semantic else (
                     ("memory_disabled", True, True), (adapter_kind + "_adapter", False, False))
         if adapter_kind == "none":
             variants = (("head_only", False, False),)
+        if adapter_kind == "state":
+            variants = (("state_disabled", False, False), ("state_tuned", False, False))
+        if adapter_kind == "state_semantic":
+            variants += (("state_disabled", False, False),)
         for variant, disabled_memory, disabled_adapter in variants:
-            if adapter_kind == "semantic":
+            if semantic:
                 adapter.hops = 1 if variant == "one_hop" else original_hops
             score_rows = []
             total_loss = 0.0
             total_labels = 0
             for example in examples:
                 logits, labels = forward(model, head, example, device, disabled_memory,
-                                         disabled_adapter, rosa_features)
+                                         disabled_adapter,
+                                         variant == "state_disabled",
+                                         rosa_features)
                 total_loss += float(F.binary_cross_entropy_with_logits(logits, labels)) * labels.numel()
                 total_labels += labels.numel()
                 score_rows.append(logits[0].sigmoid().cpu().tolist())
@@ -98,7 +107,7 @@ def evaluate(model, adapter, head, examples, device, threshold, thresholds, adap
             ]
             report[variant] = metrics
     finally:
-        if adapter_kind == "semantic":
+        if semantic:
             adapter.hops = original_hops
     return report
 
@@ -111,7 +120,8 @@ def parse_args():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--checkpoint", type=Path)
     parser.add_argument("--model", default="0.4b")
-    parser.add_argument("--adapter-kind", choices=("semantic", "local", "rosa", "none"), default="semantic")
+    parser.add_argument("--adapter-kind", choices=("semantic", "local", "rosa", "state",
+                                                    "state_semantic", "none"), default="semantic")
     parser.add_argument("--rosa-k", type=int, default=4)
     parser.add_argument("--vocab", default=VOCAB)
     parser.add_argument("--device", default="auto")
@@ -183,18 +193,21 @@ def main():
     if saved is not None:
         adapter_kind = saved.get("adapter_kind", "semantic")
         adapter_config = saved["adapter_config"]
+        state_config = saved.get("state_config", {})
     else:
         adapter_kind = args.adapter_kind
+        state_config = dict(layers=model.args.n_layer, heads=model.args.n_embd // 64,
+                            head_size=64)
         adapter_config = (dict(width=model.args.n_embd, memory_dim=args.memory_dim, hops=args.hops,
                                chunk_size=args.chunk_size, query_block=args.query_block)
-                          if adapter_kind == "semantic" else
+                          if adapter_kind in ("semantic", "state_semantic") else
                           dict(width=model.args.n_embd, hidden=args.local_hidden)
                           if adapter_kind == "local" else
                           dict(K=args.rosa_k, hidden=args.head_hidden)
                           if adapter_kind == "rosa" else {})
     head_config = saved["head_config"] if saved is not None else dict(
         width=model.args.n_embd, hidden=args.head_hidden)
-    if adapter_kind == "semantic":
+    if adapter_kind in ("semantic", "state_semantic"):
         adapter = SemanticMemoryAdapter(**adapter_config).to(device)
     elif adapter_kind == "local":
         adapter = LocalResidualAdapter(**adapter_config).to(device)
@@ -202,20 +215,27 @@ def main():
         adapter = SceneRosaInputAdapter(model.emb, **adapter_config).to(device)
     else:
         adapter = None
+    state_adapter = (InitialStateTuner(**state_config).to(device)
+                     if adapter_kind in ("state", "state_semantic") else None)
     rosa_features = RosaFeatures(adapter_config["K"]) if adapter_kind == "rosa" else None
     torch.manual_seed(args.seed)
     head = SceneBoundaryHead(**head_config).to(device)
     if saved is not None:
         if adapter is not None:
             adapter.load_state_dict(saved["adapter"])
+        if state_adapter is not None:
+            state_adapter.load_state_dict(saved["state_adapter"])
         head.load_state_dict(saved["head"])
     if adapter is not None:
         model.add_adapter(args.layer, adapter)
-    model.grad_ckpt = adapter is not None
+    if state_adapter is not None:
+        model.add_state_adapter(state_adapter)
+    model.grad_ckpt = adapter is not None or state_adapter is not None
     if any(parameter.requires_grad for name, parameter in model.named_parameters()
-           if not name.startswith("adapters.")):
+           if not name.startswith(("adapters.", "state_adapter."))):
         raise RuntimeError("The RWKV backbone must remain frozen")
     adapter_parameters = list(adapter.parameters()) if adapter is not None else []
+    state_parameters = list(state_adapter.parameters()) if state_adapter is not None else []
     args.output.mkdir(parents=True, exist_ok=True)
     manifest = dict(format="scene_boundary_v1", arguments={key: str(value) if isinstance(value, Path) else value
                                                              for key, value in vars(args).items()},
@@ -224,8 +244,10 @@ def main():
                     validation_sha256=fingerprint(args.validation),
                     train_sha256=fingerprint(args.train) if training else None,
                     adapter_kind=adapter_kind, adapter_config=adapter_config, head_config=head.config,
+                    state_config=state_config,
                     checkpoint_sha256=fingerprint(args.checkpoint) if saved is not None else None,
                     adapter_parameters=sum(parameter.numel() for parameter in adapter_parameters),
+                    state_parameters=sum(parameter.numel() for parameter in state_parameters),
                     head_parameters=sum(parameter.numel() for parameter in head.parameters()),
                     training_rows=len(training), validation_rows=len(validation))
     (args.output / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
@@ -233,7 +255,7 @@ def main():
         positive = sum(sum(example["boundary_labels"]) for example in training)
         negative = sum(len(example["boundary_labels"]) for example in training) - positive
         pos_weight = torch.tensor([negative / max(1, positive)], device=device)
-        trainable = adapter_parameters + list(head.parameters())
+        trainable = adapter_parameters + state_parameters + list(head.parameters())
         optimizer = torch.optim.AdamW(trainable, lr=args.lr, weight_decay=0.01)
         with (args.output / "train.jsonl").open("w", encoding="utf-8") as log:
             for step in range(1, args.steps + 1):
@@ -261,9 +283,12 @@ def main():
                     print(json.dumps(record), flush=True)
         torch.save(dict(format="scene_boundary_v1", adapter_kind=adapter_kind,
                         adapter_config=adapter_config,
+                        state_config=state_config,
                         head_config=head.config,
                         adapter={key: value.detach().cpu() for key, value in adapter.state_dict().items()}
                         if adapter is not None else {},
+                        state_adapter={key: value.detach().cpu() for key, value in state_adapter.state_dict().items()}
+                        if state_adapter is not None else {},
                         head={key: value.detach().cpu() for key, value in head.state_dict().items()},
                         model_path=model_path, model_sha256=model_hash,
                         vocab_sha256=manifest["vocab_sha256"], layer=args.layer, steps=args.steps),

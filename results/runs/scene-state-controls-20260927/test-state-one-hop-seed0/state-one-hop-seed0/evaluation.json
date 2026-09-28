@@ -1,0 +1,58 @@
+{
+  "memory_disabled": {
+    "rows": 149,
+    "true_positive": 45,
+    "predicted": 185,
+    "gold": 155,
+    "precision": 0.24324324324324326,
+    "recall": 0.2903225806451613,
+    "f1": 0.2647058823529412,
+    "exact_match": 0.24161073825503357,
+    "binary_nll": 0.4523827789749281,
+    "labels": 1994,
+    "threshold": 0.7,
+    "threshold_sweep": []
+  },
+  "one_hop": {
+    "rows": 149,
+    "true_positive": 49,
+    "predicted": 223,
+    "gold": 155,
+    "precision": 0.21973094170403587,
+    "recall": 0.3161290322580645,
+    "f1": 0.25925925925925924,
+    "exact_match": 0.18791946308724833,
+    "binary_nll": 0.4687833015693944,
+    "labels": 1994,
+    "threshold": 0.7,
+    "threshold_sweep": []
+  },
+  "multi_hop": {
+    "rows": 149,
+    "true_positive": 49,
+    "predicted": 223,
+    "gold": 155,
+    "precision": 0.21973094170403587,
+    "recall": 0.3161290322580645,
+    "f1": 0.25925925925925924,
+    "exact_match": 0.18791946308724833,
+    "binary_nll": 0.4687833015693944,
+    "labels": 1994,
+    "threshold": 0.7,
+    "threshold_sweep": []
+  },
+  "state_disabled": {
+    "rows": 149,
+    "true_positive": 1,
+    "predicted": 2,
+    "gold": 155,
+    "precision": 0.5,
+    "recall": 0.0064516129032258064,
+    "f1": 0.012738853503184714,
+    "exact_match": 0.31543624161073824,
+    "binary_nll": 0.4224182331304971,
+    "labels": 1994,
+    "threshold": 0.7,
+    "threshold_sweep": []
+  }
+}

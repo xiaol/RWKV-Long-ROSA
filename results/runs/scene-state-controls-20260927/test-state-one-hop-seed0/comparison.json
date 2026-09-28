@@ -1,0 +1,36 @@
+[
+  {
+    "run": "results/runs/scene-state-controls-20260927/state-one-hop-seed0",
+    "variant": "multi_hop",
+    "seed": 0,
+    "threshold": 0.7,
+    "development": {
+      "threshold": 0.7,
+      "rows": 367,
+      "true_positive": 170,
+      "predicted": 627,
+      "gold": 401,
+      "precision": 0.2711323763955343,
+      "recall": 0.4239401496259352,
+      "f1": 0.33073929961089493,
+      "exact_match": 0.20708446866485014
+    },
+    "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+    "development_report_sha256": "d2a246e2feb3541c23de46113c411ac3c9310d6e7fbfdbc746c5cc6960a68f4f",
+    "checkpoint_sha256": "fae0dd92a5dcf4f745f162668aebabfc75f05d220e289e19e15d7a72f6c8d760",
+    "test": {
+      "rows": 149,
+      "true_positive": 49,
+      "predicted": 223,
+      "gold": 155,
+      "precision": 0.21973094170403587,
+      "recall": 0.3161290322580645,
+      "f1": 0.25925925925925924,
+      "exact_match": 0.18791946308724833,
+      "binary_nll": 0.4687833015693944,
+      "labels": 1994,
+      "threshold": 0.7,
+      "threshold_sweep": []
+    }
+  }
+]

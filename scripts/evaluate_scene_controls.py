@@ -51,7 +51,8 @@ def main():
                 raise ValueError(f"{source}: test prompts overlap training or development")
         kind = manifest.get("adapter_kind", "semantic")
         variant = {"none": "head_only", "local": "local_adapter",
-                   "rosa": "rosa_adapter", "semantic": "multi_hop"}[kind]
+                   "rosa": "rosa_adapter", "semantic": "multi_hop",
+                   "state": "state_tuned", "state_semantic": "multi_hop"}[kind]
         development = json.loads((run / "evaluation.json").read_text(encoding="utf-8"))
         selected = select_threshold(development[variant])
         selections.append(dict(run=str(run), variant=variant, seed=arguments["seed"],

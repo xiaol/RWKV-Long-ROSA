@@ -1,0 +1,27 @@
+{
+  "test_sha256": "d8b50ca3862bd40f023155bd14aa7b25d9d5dd3db4ea1c4d5a7e6f4f79cdfd6d",
+  "selections": [
+    {
+      "run": "results/runs/scene-state-controls-20260927/state-seed0",
+      "variant": "state_tuned",
+      "seed": 0,
+      "threshold": 0.5,
+      "development": {
+        "threshold": 0.5,
+        "rows": 367,
+        "true_positive": 160,
+        "predicted": 894,
+        "gold": 401,
+        "precision": 0.1789709172259508,
+        "recall": 0.39900249376558605,
+        "f1": 0.2471042471042471,
+        "exact_match": 0.05722070844686648
+      },
+      "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+      "development_report_sha256": "91e16fdd95306fe971e95ef5450ad5534aa7ec085b7c3cd679be375d3c6343e1",
+      "checkpoint_sha256": "c0bd34a017b42fadff7d4261b7985656cde91283fccfad501ff73f9c04406be2"
+    }
+  ],
+  "selection_rule": "Maximum development F1; ties closest to 0.5, then lower cutoff",
+  "split_limitation": "Prompt disjointness only; source novel IDs unavailable"
+}
