@@ -1,0 +1,70 @@
+[
+  {
+    "run": "results/runs/scene-controls-20260926/two-hop-seed0",
+    "variant": "multi_hop",
+    "seed": 0,
+    "threshold": 0.6,
+    "development": {
+      "threshold": 0.6,
+      "rows": 367,
+      "true_positive": 209,
+      "predicted": 948,
+      "gold": 401,
+      "precision": 0.22046413502109705,
+      "recall": 0.5211970074812967,
+      "f1": 0.30985915492957744,
+      "exact_match": 0.08446866485013624
+    },
+    "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+    "development_report_sha256": "5d4556b13b8c1cf74dfc64d0fa58eaa2990bb846505dc4928b2de0e72bb3de08",
+    "checkpoint_sha256": "dc6a6dbcc4628f23b28b83cb39eec1566300caed2589870109bd3ba8da696429",
+    "test": {
+      "rows": 149,
+      "true_positive": 64,
+      "predicted": 357,
+      "gold": 155,
+      "precision": 0.1792717086834734,
+      "recall": 0.4129032258064516,
+      "f1": 0.25,
+      "exact_match": 0.06711409395973154,
+      "binary_nll": 0.5276546865970704,
+      "labels": 1994,
+      "threshold": 0.6,
+      "threshold_sweep": []
+    }
+  },
+  {
+    "run": "results/runs/scene-controls-20260926/two-hop-seed1",
+    "variant": "multi_hop",
+    "seed": 1,
+    "threshold": 0.6,
+    "development": {
+      "threshold": 0.6,
+      "rows": 367,
+      "true_positive": 178,
+      "predicted": 702,
+      "gold": 401,
+      "precision": 0.2535612535612536,
+      "recall": 0.44389027431421446,
+      "f1": 0.3227561196736174,
+      "exact_match": 0.16348773841961853
+    },
+    "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+    "development_report_sha256": "9e34476c8d977af2a44ce7dab4dfc792b0efdac2a5b23a7be5e26cc04218c27a",
+    "checkpoint_sha256": "25f965cfc9c50c4dfeed25209c244843155f048557fb526a7a8d473796969ccf",
+    "test": {
+      "rows": 149,
+      "true_positive": 53,
+      "predicted": 265,
+      "gold": 155,
+      "precision": 0.2,
+      "recall": 0.3419354838709677,
+      "f1": 0.2523809523809524,
+      "exact_match": 0.1476510067114094,
+      "binary_nll": 0.4775645395922087,
+      "labels": 1994,
+      "threshold": 0.6,
+      "threshold_sweep": []
+    }
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "memory_disabled": {
+    "rows": 149,
+    "true_positive": 143,
+    "predicted": 1638,
+    "gold": 155,
+    "precision": 0.0873015873015873,
+    "recall": 0.9225806451612903,
+    "f1": 0.15950920245398773,
+    "exact_match": 0.0,
+    "binary_nll": 0.7979436190042237,
+    "labels": 1994,
+    "threshold": 0.5,
+    "threshold_sweep": []
+  },
+  "rosa_adapter": {
+    "rows": 149,
+    "true_positive": 50,
+    "predicted": 341,
+    "gold": 155,
+    "precision": 0.1466275659824047,
+    "recall": 0.3225806451612903,
+    "f1": 0.20161290322580644,
+    "exact_match": 0.09395973154362416,
+    "binary_nll": 0.4395987217799352,
+    "labels": 1994,
+    "threshold": 0.5,
+    "threshold_sweep": []
+  }
+}

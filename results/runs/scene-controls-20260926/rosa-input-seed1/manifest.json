@@ -1,0 +1,58 @@
+{
+  "format": "scene_boundary_v1",
+  "arguments": {
+    "mode": "train",
+    "train": "../data/scene-controls-20260926/train.jsonl",
+    "validation": "../data/scene-controls-20260926/validation.jsonl",
+    "output": "results/runs/scene-controls-20260926/rosa-input-seed1",
+    "checkpoint": null,
+    "model": "0.4b",
+    "adapter_kind": "rosa",
+    "rosa_k": 4,
+    "vocab": "/root/x/models/rwkv7/rwkv_vocab_v20230424.txt",
+    "device": "cuda:0",
+    "layer": 6,
+    "memory_dim": 64,
+    "hops": 2,
+    "chunk_size": 32,
+    "query_block": 128,
+    "head_hidden": 128,
+    "local_hidden": 132,
+    "steps": 500,
+    "accum": 2,
+    "lr": 0.0001,
+    "seed": 1,
+    "max_length": 4096,
+    "threshold": 0.5,
+    "thresholds": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ]
+  },
+  "model_path": "/root/x/models/rwkv7/rwkv7-g1d-0.4b-20260210-ctx8192.pth",
+  "model_sha256": "947cb9b8013224e06b112b72204256bec65096cc935a7767ce63d8e3ddef83bb",
+  "vocab_sha256": "e6dee3d4e31b4d5c40ac99508ac6c701ceef4bed681bf2167ce9a908552bca89",
+  "validation_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+  "train_sha256": "ddf9694ea6b4e05adc2c90c89ae8553c4b0510b7a760f2d825d6ee759684c5d3",
+  "adapter_kind": "rosa",
+  "adapter_config": {
+    "K": 4,
+    "hidden": 128
+  },
+  "head_config": {
+    "width": 1024,
+    "hidden": 128
+  },
+  "checkpoint_sha256": null,
+  "adapter_parameters": 1052321,
+  "head_parameters": 133377,
+  "training_rows": 1437,
+  "validation_rows": 367
+}

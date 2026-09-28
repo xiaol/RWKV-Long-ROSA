@@ -1,0 +1,70 @@
+[
+  {
+    "run": "results/runs/scene-controls-20260926/local-seed0",
+    "variant": "local_adapter",
+    "seed": 0,
+    "threshold": 0.5,
+    "development": {
+      "threshold": 0.5,
+      "rows": 367,
+      "true_positive": 247,
+      "predicted": 1077,
+      "gold": 401,
+      "precision": 0.22934076137418755,
+      "recall": 0.6159600997506235,
+      "f1": 0.3342354533152909,
+      "exact_match": 0.12534059945504086
+    },
+    "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+    "development_report_sha256": "1bcca101dd0fe53f8ce9e00e4e19075c1437750140ed6e6598836a3cc2fc816b",
+    "checkpoint_sha256": "70dbbfd3ce08c2808e60b3b93d85beead69a41451a6e359cc9c43213c7b390bf",
+    "test": {
+      "rows": 149,
+      "true_positive": 79,
+      "predicted": 438,
+      "gold": 155,
+      "precision": 0.18036529680365296,
+      "recall": 0.5096774193548387,
+      "f1": 0.26644182124789206,
+      "exact_match": 0.1342281879194631,
+      "binary_nll": 0.4601968109062168,
+      "labels": 1994,
+      "threshold": 0.5,
+      "threshold_sweep": []
+    }
+  },
+  {
+    "run": "results/runs/scene-controls-20260926/local-seed1",
+    "variant": "local_adapter",
+    "seed": 1,
+    "threshold": 0.5,
+    "development": {
+      "threshold": 0.5,
+      "rows": 367,
+      "true_positive": 210,
+      "predicted": 1068,
+      "gold": 401,
+      "precision": 0.19662921348314608,
+      "recall": 0.5236907730673317,
+      "f1": 0.2859087814840027,
+      "exact_match": 0.0681198910081744
+    },
+    "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+    "development_report_sha256": "a8fb45f43bf914f5f7d74c6b6294ead454ec84ee8bc38195f0a87db287c87991",
+    "checkpoint_sha256": "806d5ee453704aa8e9e5463cd2eaf49a9192732912cdde2127faa604b6873213",
+    "test": {
+      "rows": 149,
+      "true_positive": 70,
+      "predicted": 375,
+      "gold": 155,
+      "precision": 0.18666666666666668,
+      "recall": 0.45161290322580644,
+      "f1": 0.2641509433962264,
+      "exact_match": 0.08053691275167785,
+      "binary_nll": 0.4856787686840582,
+      "labels": 1994,
+      "threshold": 0.5,
+      "threshold_sweep": []
+    }
+  }
+]

@@ -1,0 +1,230 @@
+{
+  "memory_disabled": {
+    "rows": 367,
+    "true_positive": 391,
+    "predicted": 4722,
+    "gold": 401,
+    "precision": 0.08280389665396018,
+    "recall": 0.9750623441396509,
+    "f1": 0.15264493460862777,
+    "exact_match": 0.0,
+    "binary_nll": 0.8282592129571679,
+    "labels": 4921,
+    "threshold": 0.5,
+    "threshold_sweep": [
+      {
+        "threshold": 0.1,
+        "rows": 367,
+        "true_positive": 401,
+        "predicted": 4921,
+        "gold": 401,
+        "precision": 0.08148750254013412,
+        "recall": 1.0,
+        "f1": 0.15069522735813604,
+        "exact_match": 0.0
+      },
+      {
+        "threshold": 0.2,
+        "rows": 367,
+        "true_positive": 401,
+        "predicted": 4921,
+        "gold": 401,
+        "precision": 0.08148750254013412,
+        "recall": 1.0,
+        "f1": 0.15069522735813604,
+        "exact_match": 0.0
+      },
+      {
+        "threshold": 0.3,
+        "rows": 367,
+        "true_positive": 401,
+        "predicted": 4921,
+        "gold": 401,
+        "precision": 0.08148750254013412,
+        "recall": 1.0,
+        "f1": 0.15069522735813604,
+        "exact_match": 0.0
+      },
+      {
+        "threshold": 0.4,
+        "rows": 367,
+        "true_positive": 401,
+        "predicted": 4921,
+        "gold": 401,
+        "precision": 0.08148750254013412,
+        "recall": 1.0,
+        "f1": 0.15069522735813604,
+        "exact_match": 0.0
+      },
+      {
+        "threshold": 0.5,
+        "rows": 367,
+        "true_positive": 391,
+        "predicted": 4722,
+        "gold": 401,
+        "precision": 0.08280389665396018,
+        "recall": 0.9750623441396509,
+        "f1": 0.15264493460862777,
+        "exact_match": 0.0
+      },
+      {
+        "threshold": 0.6,
+        "rows": 367,
+        "true_positive": 196,
+        "predicted": 1384,
+        "gold": 401,
+        "precision": 0.1416184971098266,
+        "recall": 0.48877805486284287,
+        "f1": 0.2196078431372549,
+        "exact_match": 0.1008174386920981
+      },
+      {
+        "threshold": 0.7,
+        "rows": 367,
+        "true_positive": 4,
+        "predicted": 9,
+        "gold": 401,
+        "precision": 0.4444444444444444,
+        "recall": 0.00997506234413965,
+        "f1": 0.01951219512195122,
+        "exact_match": 0.2888283378746594
+      },
+      {
+        "threshold": 0.8,
+        "rows": 367,
+        "true_positive": 0,
+        "predicted": 0,
+        "gold": 401,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "exact_match": 0.29155313351498635
+      },
+      {
+        "threshold": 0.9,
+        "rows": 367,
+        "true_positive": 0,
+        "predicted": 0,
+        "gold": 401,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "exact_match": 0.29155313351498635
+      }
+    ]
+  },
+  "rosa_adapter": {
+    "rows": 367,
+    "true_positive": 129,
+    "predicted": 738,
+    "gold": 401,
+    "precision": 0.17479674796747968,
+    "recall": 0.32169576059850374,
+    "f1": 0.22651448639157157,
+    "exact_match": 0.06267029972752043,
+    "binary_nll": 0.4217298569911332,
+    "labels": 4921,
+    "threshold": 0.5,
+    "threshold_sweep": [
+      {
+        "threshold": 0.1,
+        "rows": 367,
+        "true_positive": 387,
+        "predicted": 4273,
+        "gold": 401,
+        "precision": 0.0905686871050784,
+        "recall": 0.9650872817955112,
+        "f1": 0.16559691912708602,
+        "exact_match": 0.0
+      },
+      {
+        "threshold": 0.2,
+        "rows": 367,
+        "true_positive": 318,
+        "predicted": 2702,
+        "gold": 401,
+        "precision": 0.11769059955588453,
+        "recall": 0.7930174563591023,
+        "f1": 0.20496293909120206,
+        "exact_match": 0.0027247956403269754
+      },
+      {
+        "threshold": 0.3,
+        "rows": 367,
+        "true_positive": 243,
+        "predicted": 1730,
+        "gold": 401,
+        "precision": 0.14046242774566475,
+        "recall": 0.6059850374064838,
+        "f1": 0.22806194274988267,
+        "exact_match": 0.008174386920980926
+      },
+      {
+        "threshold": 0.4,
+        "rows": 367,
+        "true_positive": 176,
+        "predicted": 1120,
+        "gold": 401,
+        "precision": 0.15714285714285714,
+        "recall": 0.4389027431421446,
+        "f1": 0.2314266929651545,
+        "exact_match": 0.03814713896457766
+      },
+      {
+        "threshold": 0.5,
+        "rows": 367,
+        "true_positive": 129,
+        "predicted": 738,
+        "gold": 401,
+        "precision": 0.17479674796747968,
+        "recall": 0.32169576059850374,
+        "f1": 0.22651448639157157,
+        "exact_match": 0.06267029972752043
+      },
+      {
+        "threshold": 0.6,
+        "rows": 367,
+        "true_positive": 91,
+        "predicted": 454,
+        "gold": 401,
+        "precision": 0.20044052863436124,
+        "recall": 0.22693266832917705,
+        "f1": 0.2128654970760234,
+        "exact_match": 0.15258855585831063
+      },
+      {
+        "threshold": 0.7,
+        "rows": 367,
+        "true_positive": 55,
+        "predicted": 243,
+        "gold": 401,
+        "precision": 0.22633744855967078,
+        "recall": 0.1371571072319202,
+        "f1": 0.17080745341614906,
+        "exact_match": 0.22888283378746593
+      },
+      {
+        "threshold": 0.8,
+        "rows": 367,
+        "true_positive": 15,
+        "predicted": 85,
+        "gold": 401,
+        "precision": 0.17647058823529413,
+        "recall": 0.03740648379052369,
+        "f1": 0.06172839506172839,
+        "exact_match": 0.2615803814713896
+      },
+      {
+        "threshold": 0.9,
+        "rows": 367,
+        "true_positive": 2,
+        "predicted": 6,
+        "gold": 401,
+        "precision": 0.3333333333333333,
+        "recall": 0.004987531172069825,
+        "f1": 0.009828009828009828,
+        "exact_match": 0.29155313351498635
+      }
+    ]
+  }
+}

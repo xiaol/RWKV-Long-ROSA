@@ -12,6 +12,13 @@ adapters, and measures what it fixes and what it does not.
 See `docs/BACKGROUND.md` for what ROSA is, how it differs from DeepSeek's Engram (parametric hashed
 n-gram tables), and the sources. `docs/RESULTS.md` has the full tables and ablations.
 
+An experimental **semantic multi-hop memory adapter** now retrieves contextual
+hidden-state chunks and injects a learned residual into the frozen RWKV backbone.
+It includes assistant-only SFT training and novel-agent evaluation with memory-off
+and one-hop controls. See [docs/SEMANTIC_MEMORY.md](docs/SEMANTIC_MEMORY.md) for the
+architecture and commands. This is a separate learned retrieval method; the
+verbatim ROSA results below are not results for the semantic adapter.
+
 ## Headline results (frozen RWKV-7, 0.1M-parameter ROSA pointer head trained on 33M tokens)
 
 Needle in a haystack, exact match of a 6-digit code planted at depth 10 % / 50 % / 90 % (n = 20):

@@ -1,0 +1,30 @@
+{
+  "memory_disabled": {
+    "rows": 149,
+    "true_positive": 23,
+    "predicted": 114,
+    "gold": 155,
+    "precision": 0.20175438596491227,
+    "recall": 0.14838709677419354,
+    "f1": 0.17100371747211895,
+    "exact_match": 0.20134228187919462,
+    "binary_nll": 0.4123994891299168,
+    "labels": 1994,
+    "threshold": 0.5,
+    "threshold_sweep": []
+  },
+  "local_adapter": {
+    "rows": 149,
+    "true_positive": 79,
+    "predicted": 438,
+    "gold": 155,
+    "precision": 0.18036529680365296,
+    "recall": 0.5096774193548387,
+    "f1": 0.26644182124789206,
+    "exact_match": 0.1342281879194631,
+    "binary_nll": 0.4601968109062168,
+    "labels": 1994,
+    "threshold": 0.5,
+    "threshold_sweep": []
+  }
+}

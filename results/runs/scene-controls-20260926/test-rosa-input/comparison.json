@@ -1,0 +1,70 @@
+[
+  {
+    "run": "results/runs/scene-controls-20260926/rosa-input-seed0",
+    "variant": "rosa_adapter",
+    "seed": 0,
+    "threshold": 0.5,
+    "development": {
+      "threshold": 0.5,
+      "rows": 367,
+      "true_positive": 145,
+      "predicted": 808,
+      "gold": 401,
+      "precision": 0.17945544554455445,
+      "recall": 0.36159600997506236,
+      "f1": 0.23986765922249792,
+      "exact_match": 0.0681198910081744
+    },
+    "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+    "development_report_sha256": "b703d2bf2d02b998a7189d0ff1991f309954505539a49256839f0f6ccf7fbf36",
+    "checkpoint_sha256": "1c4de6dcd9d6cfd5bc03b7f6e823350d3a36d44e550f3f2128a73bef09695d6d",
+    "test": {
+      "rows": 149,
+      "true_positive": 50,
+      "predicted": 341,
+      "gold": 155,
+      "precision": 0.1466275659824047,
+      "recall": 0.3225806451612903,
+      "f1": 0.20161290322580644,
+      "exact_match": 0.09395973154362416,
+      "binary_nll": 0.4395987217799352,
+      "labels": 1994,
+      "threshold": 0.5,
+      "threshold_sweep": []
+    }
+  },
+  {
+    "run": "results/runs/scene-controls-20260926/rosa-input-seed1",
+    "variant": "rosa_adapter",
+    "seed": 1,
+    "threshold": 0.4,
+    "development": {
+      "threshold": 0.4,
+      "rows": 367,
+      "true_positive": 176,
+      "predicted": 1120,
+      "gold": 401,
+      "precision": 0.15714285714285714,
+      "recall": 0.4389027431421446,
+      "f1": 0.2314266929651545,
+      "exact_match": 0.03814713896457766
+    },
+    "development_sha256": "74064df6f418dc3ba08b5b2d571fa74c26fd65f0eee1755330bab994d2a2adf3",
+    "development_report_sha256": "ed728e80d0a7caa40c76280586f41c5ab22685beb5897f0fed8bf12a8b6b614a",
+    "checkpoint_sha256": "f39ae158c8eb42652261299d2a1723295f939e89c865325262a206301be668d9",
+    "test": {
+      "rows": 149,
+      "true_positive": 67,
+      "predicted": 432,
+      "gold": 155,
+      "precision": 0.1550925925925926,
+      "recall": 0.432258064516129,
+      "f1": 0.2282793867120954,
+      "exact_match": 0.04697986577181208,
+      "binary_nll": 0.4122644233383769,
+      "labels": 1994,
+      "threshold": 0.4,
+      "threshold_sweep": []
+    }
+  }
+]

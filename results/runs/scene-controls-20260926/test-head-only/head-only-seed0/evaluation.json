@@ -1,0 +1,16 @@
+{
+  "head_only": {
+    "rows": 149,
+    "true_positive": 69,
+    "predicted": 404,
+    "gold": 155,
+    "precision": 0.1707920792079208,
+    "recall": 0.44516129032258067,
+    "f1": 0.24686940966010734,
+    "exact_match": 0.053691275167785234,
+    "binary_nll": 0.6125005785387043,
+    "labels": 1994,
+    "threshold": 0.6,
+    "threshold_sweep": []
+  }
+}
